@@ -5,7 +5,8 @@ Assignment:		Lab 8 Milestones
 
 --------Tasks for Spring Break--------
 
-Points			Tasks--------------------------------------
+Points	  |		Tasks--------------------------------------
+
 	5 |		Download the Qt framework.
 	
 	10|		Go through the Qt Webkit Documentation.  Take notes.  Push the notes to the Github repo.
