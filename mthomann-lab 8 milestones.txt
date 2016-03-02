@@ -5,17 +5,16 @@ Assignment:		Lab 8 Milestones
 
 --------Tasks for Spring Break--------
 
-Points		|					 Tasks	
---------------------------------------
-	5  		|		Download the Qt framework.
+Points			Tasks--------------------------------------
+	5 |		Download the Qt framework.
 	
-	10		  |		Go through the Qt Webkit Documentation.  Take notes.  Push the notes to the Github repo.
+	10|		Go through the Qt Webkit Documentation.  Take notes.  Push the notes to the Github repo.
 	
-	10  		|		Sketch out an IML diagram of what the class hierarchy will look like for the browser.  
-				|		Push the diagram to the Github repo if possible.
+	10|		Sketch out an IML diagram of what the class hierarchy will look like for the browser.  
+			Push the diagram to the Github repo if possible.
 				
-	15 		|		Make a Qt project and have it do a simple thing.  Use the GUI to make a simple calculator.
-				|	  The user could input two numbers and it would output the sum.
+	15|		Make a Qt project and have it do a simple thing.  Use the GUI to make a simple calculator.
+			The user could input two numbers and it would output the sum.
 				
 --------Tasks for Maggie for Spring Break--------
 
