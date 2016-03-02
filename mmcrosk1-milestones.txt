@@ -1,0 +1,30 @@
+Name:			Michael McRoskey
+Assignment:		Lab 8 Milestones
+
+40 Point Rubric for Final Project
+
+--------Tasks for Spring Break--------
+
+Points	| Tasks
+--------------------------------------
+ 5  	| Download the Qt framework
+		
+ 10  	| Go through the Qt Webkit Documentation. Take notes.
+		| Push the notes to the Github repo.
+
+ 10  	| Sketch out an IML diagram of what the class hierarchy
+		| will look like for the browser. Push the diagram to
+		| the Github repo if possible.
+
+ 15 	| Make a Qt project and have it do a simple thing. Use
+		| the GUI to create a simple calculator to input two
+		| integers and display the sum.
+	
+		
+------------Tasks for Michael for Spring Break------------
+
+- Explore similar implementations of Qt as a web browser
+- Design basic wireframes of how the web browser will look
+- Come up with a list of possible features for the project
+	(eg. tabs, history, bookmarks, etc.), especially as they
+	relate to ND (ND-specific browser)
