@@ -1,0 +1,18 @@
+Lab 8 Milestones:
+Team: Daniel Kerrigan, Royce Branning, Maggie Thomann, Michael McRoskey
+
+1. Download/Setup Development Environment (.5 hours)
+    a. Download Qt Framework                            5 points
+    b. Setup GitHub Repository and make initial push    5 points
+
+2. Read through Qt Creator Manual (1.5 hours)           10 points
+   The purpose of this is to get a general knowledge about working with the Qt Framework.
+   http://doc.qt.io/qtcreator/index.html
+
+3. Work through Qt WebKit Tutorials  (5+ hours)         30 points
+   The purpose of this is to learn how to use the Qt Framework to make a basic web browser. For next lab, I will be able to demonstrate a web browser with basic functionality. 
+    http://www.bogotobogo.com/Qt/Qt5_WebKit_WebView_WebBrowser_QtCreator.php
+    http://doc.qt.io/qt-5/qtwebkitexamples-webkitwidgets-fancybrowser-example.html
+    http://doc.qt.io/qt-5/qtwebkitexamples-webkitwidgets-browser-example.html
+    http://doc.qt.io/qt-5/qtexamplesandtutorials.html
+   
