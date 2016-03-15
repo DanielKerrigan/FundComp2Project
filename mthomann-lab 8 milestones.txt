@@ -1,0 +1,28 @@
+Name:					Margaret Thomann
+Assignment:		Lab 8 Milestones
+
+40 Point Rubric for Final Project
+
+--------Tasks for Spring Break--------
+
+Points	  |		Tasks--------------------------------------
+
+	5 |		Download the Qt framework.
+	
+	10|		Go through the Qt Webkit Documentation.  Take notes.  Push the notes to the Github repo.
+	
+	10|		Sketch out an IML diagram of what the class hierarchy will look like for the browser.  
+			Push the diagram to the Github repo if possible.
+				
+	15|		Make a Qt project and have it do a simple thing.  Use the GUI to make a simple calculator.
+			The user could input two numbers and it would output the sum.
+				
+--------Tasks for Maggie for Spring Break--------
+
+- Figure out how to implement graphics on Qt
+	- Set a button to have an image fill
+	- Adjust colors across the entire GUI
+
+- Figure out how it interprets HTML and if we'd have to do anything with that
+
+- Watch YouTube videos of people creating more complicated Qt projects to see all that Qt has to offer
