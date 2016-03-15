@@ -1,0 +1,22 @@
+Lab 8 Milestones
+
+Final Project - Qt Web Browser
+
+Team Members: Dan Kerrigan, Michael McRoskey, Maggie Thomann
+
+Download and Install Qt - 5 pts
+
+Read over Qt Creator Manual (http://doc.qt.io/qtcreator/index.html) - 5 pts
+	- This will give a general understanding of how to work in the Qt framework
+
+Go through general Qt Tutorial - 10 pts
+	- Tangible exposure to working in the Qt Framework
+	- http://doc.qt.io/qt-5/qtexamplesandtutorials.html
+
+Go through 3 Qt Web Browser Tutorials - 20 pts (any of these could be compilable)
+	- These links have web browser specific tutorials to get us started actually creating a simple version of our finished project
+	- http://www.bogotobogo.com/Qt/Qt5_WebKit_WebView_WebBrowser_QtCreator.php
+	- http://doc.qt.io/qt-5/qtwebkitexamples-index.html ( 2 Browser Tutorials)
+
+
+
