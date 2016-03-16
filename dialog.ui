@@ -45,6 +45,9 @@
      <height>21</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(189, 205, 255)</string>
+   </property>
    <property name="text">
     <string>=&gt;</string>
    </property>
