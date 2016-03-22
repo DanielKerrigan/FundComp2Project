@@ -6,6 +6,7 @@ Dialog::Dialog(QWidget *parent) :
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
+    ui->webView->load(QUrl("http://www.jamocracy.xyz"));
 }
 
 Dialog::~Dialog()
@@ -26,6 +27,7 @@ void Dialog::on_forwardButton_clicked()
 void Dialog::on_goButton_clicked()
 {
     ui->webView->load(("http://"+ui->urlEdit->text()));
+    //ui->webView->
 }
 
 void Dialog::on_refreshButton_clicked()
