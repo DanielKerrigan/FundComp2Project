@@ -6,8 +6,10 @@ Dialog::Dialog(QWidget *parent) :
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
-    ui->webView->load(QUrl("http://www.jamocracy.xyz")); // loads preset homepage
-    ui->urlEdit->setText("http://www.jamocracy.xyz"); // this sets the urlEdit to display the homepage url
+    // loads preset homepage
+    ui->webView->load(QUrl("http://www.google.com"));
+    // this sets the urlEdit to display the homepage url
+    ui->urlEdit->setText("http://www.google.com");
 }
 
 Dialog::~Dialog()
@@ -18,23 +20,27 @@ Dialog::~Dialog()
 void Dialog::on_backButton_clicked()
 {
     ui->webView->back();
+    //put correct url in urlEdit box - not working right now
+    //ui->urlEdit->setText(ui->webView->history()->backItem().url().toString());
 }
 
 void Dialog::on_forwardButton_clicked()
 {
     ui->webView->forward();
+
 }
 
 void Dialog::on_goButton_clicked()
 {
-    ui->webView->load(("http://"+ui->urlEdit->text()));
+    ui->webView->load((ui->urlEdit->text()));
 
 }
 
 void Dialog::on_refreshButton_clicked()
 {
     ui->webView->reload();
-    ui->urlEdit->setText(ui->webView->url().toString()); //urlEdit displays current url when page is refreshed
+    //urlEdit displays current url when page is refreshed
+    ui->urlEdit->setText(ui->webView->url().toString());
 }
 
 void Dialog::on_urlEdit_returnPressed()

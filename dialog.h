@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QWebView>
+#include <QWebHistory>
 
 namespace Ui {
 class Dialog;
