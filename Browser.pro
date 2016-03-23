@@ -19,3 +19,6 @@ SOURCES += main.cpp\
 HEADERS  += dialog.h
 
 FORMS    += dialog.ui
+
+RESOURCES += \
+    images.qrc

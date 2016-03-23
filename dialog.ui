@@ -16,6 +16,9 @@
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="QPushButton" name="backButton">
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/Images/imageTest.png);</string>
+     </property>
      <property name="text">
       <string>&lt;=</string>
      </property>
