@@ -1,6 +1,6 @@
 <ui version="4.0">
- <class>calculator</class>
- <widget class="QMainWindow" name="calculator" >
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow" >
   <property name="geometry" >
    <rect>
     <x>0</x>
@@ -10,7 +10,7 @@
    </rect>
   </property>
   <property name="windowTitle" >
-   <string>calculator</string>
+   <string>MainWindow</string>
   </property>
   <widget class="QMenuBar" name="menuBar" />
   <widget class="QToolBar" name="mainToolBar" />
