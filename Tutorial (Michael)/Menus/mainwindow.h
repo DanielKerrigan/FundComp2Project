@@ -38,54 +38,77 @@
 **
 ****************************************************************************/
 
-#ifndef CALCULATOR_H
-#define CALCULATOR_H
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
-#include <QWidget>
+#include <QtWidgets/QMainWindow>
 
-class QLineEdit;
+class QAction;
+class QActionGroup;
+class QLabel;
+class QMenu;
 
-class Button;
-
-class Calculator : public QWidget
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    Calculator(QWidget *parent = 0);
+    MainWindow();
+
+protected:
+    void contextMenuEvent(QContextMenuEvent *event);
 
 private slots:
-    void digitClicked();
-    void unaryOperatorClicked();
-    void additiveOperatorClicked();
-    void multiplicativeOperatorClicked();
-    void equalClicked();
-    void pointClicked();
-    void changeSignClicked();
-    void backspaceClicked();
-    void clear();
-    void clearAll();
-    void clearMemory();
-    void readMemory();
-    void setMemory();
-    void addToMemory();
+    void newFile();
+    void open();
+    void save();
+    void print();
+    void undo();
+    void redo();
+    void cut();
+    void copy();
+    void paste();
+    void bold();
+    void italic();
+    void leftAlign();
+    void rightAlign();
+    void justify();
+    void center();
+    void setLineSpacing();
+    void setParagraphSpacing();
+    void about();
+    void aboutQt();
 
 private:
-    Button *createButton(const QString &text, const char *member);
-    void abortOperation();
-    bool calculate(double rightOperand, const QString &pendingOperator);
+    void createActions();
+    void createMenus();
 
-    double sumInMemory;
-    double sumSoFar;
-    double factorSoFar;
-    QString pendingAdditiveOperator;
-    QString pendingMultiplicativeOperator;
-    bool waitingForOperand;
-
-    QLineEdit *display;
-
-    enum { NumDigitButtons = 10 };
-    Button *digitButtons[NumDigitButtons];
+    QMenu *fileMenu;
+    QMenu *editMenu;
+    QMenu *formatMenu;
+    QMenu *helpMenu;
+    QActionGroup *alignmentGroup;
+    QAction *newAct;
+    QAction *openAct;
+    QAction *saveAct;
+    QAction *printAct;
+    QAction *exitAct;
+    QAction *undoAct;
+    QAction *redoAct;
+    QAction *cutAct;
+    QAction *copyAct;
+    QAction *pasteAct;
+    QAction *boldAct;
+    QAction *italicAct;
+    QAction *leftAlignAct;
+    QAction *rightAlignAct;
+    QAction *justifyAct;
+    QAction *centerAct;
+    QAction *setLineSpacingAct;
+    QAction *setParagraphSpacingAct;
+    QAction *aboutAct;
+    QAction *aboutQtAct;
+    QLabel *infoLabel;
 };
 
 #endif
