@@ -19,13 +19,15 @@ Dialog::~Dialog()
 
 void Dialog::on_backButton_clicked()
 {
+    // put correct url in urlEdit box
+    ui->urlEdit->setText(ui->webView->history()->backItem().url().toString());
     ui->webView->back();
-    //put correct url in urlEdit box - not working right now
-    //ui->urlEdit->setText(ui->webView->history()->backItem().url().toString());
 }
 
 void Dialog::on_forwardButton_clicked()
 {
+    // put correct url in urlEdit box
+    ui->urlEdit->setText(ui->webView->history()->forwardItem().url().toString());
     ui->webView->forward();
 
 }
