@@ -1,51 +1,38 @@
 #include "dialog.h"
 #include "ui_dialog.h"
 
-Dialog::Dialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::Dialog)
-{
+Dialog::Dialog(QWidget *parent) : QDialog(parent), ui(new Ui::Dialog){
     ui->setupUi(this);
     // loads preset homepage
     ui->webView->load(QUrl("http://www.google.com"));
-    // this sets the urlEdit to display the homepage url
-    ui->urlEdit->setText("http://www.google.com");
+    // When the page URL changes, update the URL Edit Box to the new URL
+    connect(ui->webView, SIGNAL(urlChanged(const QUrl &)), this, SLOT(updateUrlBox()));
 }
 
-Dialog::~Dialog()
-{
+Dialog::~Dialog(){
     delete ui;
 }
-
-void Dialog::on_backButton_clicked()
-{
-    // put correct url in urlEdit box
-    ui->urlEdit->setText(ui->webView->history()->backItem().url().toString());
+// Go back a page when the back button is clicked
+void Dialog::on_backButton_clicked(){
     ui->webView->back();
 }
-
-void Dialog::on_forwardButton_clicked()
-{
-    // put correct url in urlEdit box
-    ui->urlEdit->setText(ui->webView->history()->forwardItem().url().toString());
+// Go forward a page when the forward button is clicked
+void Dialog::on_forwardButton_clicked(){
     ui->webView->forward();
-
 }
-
-void Dialog::on_goButton_clicked()
-{
+// Load the URL in the URL Edit Box when go is clicked
+void Dialog::on_goButton_clicked(){
     ui->webView->load((ui->urlEdit->text()));
-
 }
-
-void Dialog::on_refreshButton_clicked()
-{
+// Reload the page when the refresh button is clicked
+void Dialog::on_refreshButton_clicked(){
     ui->webView->reload();
-    //urlEdit displays current url when page is refreshed
-    ui->urlEdit->setText(ui->webView->url().toString());
 }
-
-void Dialog::on_urlEdit_returnPressed()
-{
+// When enter is pressed in the URL edit box, load the page
+void Dialog::on_urlEdit_returnPressed(){
     on_goButton_clicked();
+}
+// Updat the text in the URL Edit Box to match the true URL
+void Dialog::updateUrlBox(){
+    ui->urlEdit->setText(ui->webView->url().toString());
 }

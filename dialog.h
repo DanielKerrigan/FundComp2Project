@@ -28,6 +28,8 @@ private slots:
 
     void on_urlEdit_returnPressed();
 
+    void updateUrlBox();
+
 private:
     Ui::Dialog *ui;
 };
