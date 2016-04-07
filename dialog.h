@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QWebView>
 #include <QWebHistory>
+#include "url_collections.h"
 
 namespace Ui {
 class Dialog;
@@ -32,6 +33,7 @@ private slots:
 
 private:
     Ui::Dialog *ui;
+    url_collections urls;
 };
 
 #endif // DIALOG_H
