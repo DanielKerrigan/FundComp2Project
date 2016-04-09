@@ -51,3 +51,10 @@ void MainWindow::updateUrlBox(){
         ui->webView->setHtml(html);
     }
 }
+
+void MainWindow::on_actionNew_Tab_triggered()
+{
+    QWebView *myNewWebView = new QWebView();
+    ui->tabWidget->addTab(myNewWebView, "Tab 2");
+    myNewWebView->setUrl(QUrl("http://www.google.com"));
+}

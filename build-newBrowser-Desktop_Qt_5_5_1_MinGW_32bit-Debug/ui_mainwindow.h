@@ -22,6 +22,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
@@ -38,6 +39,9 @@ public:
     QAction *actionNew_Tab;
     QAction *actionNew_Window;
     QWidget *centralWidget;
+    QGridLayout *gridLayout_2;
+    QTabWidget *tabWidget;
+    QWidget *tab_11;
     QGridLayout *gridLayout;
     QPushButton *backButton;
     QPushButton *forwardButton;
@@ -55,7 +59,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(785, 552);
+        MainWindow->resize(1393, 869);
         actionBack = new QAction(MainWindow);
         actionBack->setObjectName(QStringLiteral("actionBack"));
         actionForward = new QAction(MainWindow);
@@ -72,45 +76,77 @@ public:
         actionNew_Window->setObjectName(QStringLiteral("actionNew_Window"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        gridLayout = new QGridLayout(centralWidget);
+        gridLayout_2 = new QGridLayout(centralWidget);
+        gridLayout_2->setSpacing(6);
+        gridLayout_2->setContentsMargins(11, 11, 11, 11);
+        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        tabWidget = new QTabWidget(centralWidget);
+        tabWidget->setObjectName(QStringLiteral("tabWidget"));
+        tab_11 = new QWidget();
+        tab_11->setObjectName(QStringLiteral("tab_11"));
+        gridLayout = new QGridLayout(tab_11);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        backButton = new QPushButton(centralWidget);
+        backButton = new QPushButton(tab_11);
         backButton->setObjectName(QStringLiteral("backButton"));
+        backButton->setStyleSheet(QLatin1String("background-image: url(:/Images/back.jpg);\n"
+"width: 90px;"));
 
         gridLayout->addWidget(backButton, 0, 0, 1, 1);
 
-        forwardButton = new QPushButton(centralWidget);
+        forwardButton = new QPushButton(tab_11);
         forwardButton->setObjectName(QStringLiteral("forwardButton"));
+        forwardButton->setStyleSheet(QLatin1String("background-image: url(:/Images/forward.jpg);\n"
+"width: 90px;"));
 
         gridLayout->addWidget(forwardButton, 0, 1, 1, 1);
 
-        urlEdit = new QLineEdit(centralWidget);
+        urlEdit = new QLineEdit(tab_11);
         urlEdit->setObjectName(QStringLiteral("urlEdit"));
 
         gridLayout->addWidget(urlEdit, 0, 2, 1, 1);
 
-        goButton = new QPushButton(centralWidget);
+        goButton = new QPushButton(tab_11);
         goButton->setObjectName(QStringLiteral("goButton"));
+        goButton->setStyleSheet(QLatin1String("background-image: url(:/Images/go.jpg);\n"
+"width: 90px;"));
 
         gridLayout->addWidget(goButton, 0, 3, 1, 1);
 
-        refreshButton = new QPushButton(centralWidget);
+        refreshButton = new QPushButton(tab_11);
         refreshButton->setObjectName(QStringLiteral("refreshButton"));
+        refreshButton->setStyleSheet(QLatin1String("background-image: url(:/Images/refresh.jpg);\n"
+"width: 30px;"));
 
         gridLayout->addWidget(refreshButton, 0, 4, 1, 1);
 
-        webView = new QWebView(centralWidget);
+        webView = new QWebView(tab_11);
         webView->setObjectName(QStringLiteral("webView"));
         webView->setUrl(QUrl(QStringLiteral("about:blank")));
 
         gridLayout->addWidget(webView, 1, 0, 1, 5);
 
+        tabWidget->addTab(tab_11, QString());
+        refreshButton->raise();
+        forwardButton->raise();
+        backButton->raise();
+        urlEdit->raise();
+        webView->raise();
+        goButton->raise();
+        refreshButton->raise();
+        forwardButton->raise();
+        backButton->raise();
+        urlEdit->raise();
+        webView->raise();
+        goButton->raise();
+
+        gridLayout_2->addWidget(tabWidget, 0, 0, 1, 1);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 785, 22));
+        menuBar->setGeometry(QRect(0, 0, 1393, 31));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
         menuEdit = new QMenu(menuBar);
@@ -136,6 +172,9 @@ public:
 
         retranslateUi(MainWindow);
 
+        tabWidget->setCurrentIndex(0);
+
+
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
@@ -149,10 +188,11 @@ public:
         actionPaste->setText(QApplication::translate("MainWindow", "Paste", 0));
         actionNew_Tab->setText(QApplication::translate("MainWindow", "New Tab", 0));
         actionNew_Window->setText(QApplication::translate("MainWindow", "New Window", 0));
-        backButton->setText(QApplication::translate("MainWindow", "<-", 0));
-        forwardButton->setText(QApplication::translate("MainWindow", "->", 0));
-        goButton->setText(QApplication::translate("MainWindow", "Go", 0));
-        refreshButton->setText(QApplication::translate("MainWindow", "Ref", 0));
+        backButton->setText(QString());
+        forwardButton->setText(QString());
+        goButton->setText(QString());
+        refreshButton->setText(QString());
+        tabWidget->setTabText(tabWidget->indexOf(tab_11), QApplication::translate("MainWindow", "Tab 1", 0));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
         menuEdit->setTitle(QApplication::translate("MainWindow", "Edit", 0));
     } // retranslateUi

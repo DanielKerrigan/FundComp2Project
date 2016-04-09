@@ -24,6 +24,8 @@ private slots:
     void on_urlEdit_returnPressed();
     void updateUrlBox();
 
+    void on_actionNew_Tab_triggered();
+
 private:
     Ui::MainWindow *ui;
     url_collections urls;
