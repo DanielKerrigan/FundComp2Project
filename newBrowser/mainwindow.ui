@@ -14,8 +14,59 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout_2">
+   <layout class="QGridLayout" name="gridLayout_3">
     <item row="0" column="0">
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QPushButton" name="backButton">
+        <property name="styleSheet">
+         <string notr="true">background-image: url(:/Images/back.jpg);
+width: 90px;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="forwardButton">
+        <property name="styleSheet">
+         <string notr="true">background-image: url(:/Images/forward.jpg);
+width: 90px;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLineEdit" name="urlEdit"/>
+      </item>
+      <item row="0" column="3">
+       <widget class="QPushButton" name="goButton">
+        <property name="styleSheet">
+         <string notr="true">background-image: url(:/Images/go.jpg);
+width: 90px;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4">
+       <widget class="QPushButton" name="refreshButton">
+        <property name="styleSheet">
+         <string notr="true">background-image: url(:/Images/refresh.jpg);
+width: 30px;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
        <number>0</number>
@@ -26,53 +77,6 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="0">
-         <widget class="QPushButton" name="backButton">
-          <property name="styleSheet">
-           <string notr="true">background-image: url(:/Images/back.jpg);
-width: 90px;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QPushButton" name="forwardButton">
-          <property name="styleSheet">
-           <string notr="true">background-image: url(:/Images/forward.jpg);
-width: 90px;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QLineEdit" name="urlEdit"/>
-        </item>
-        <item row="0" column="3">
-         <widget class="QPushButton" name="goButton">
-          <property name="styleSheet">
-           <string notr="true">background-image: url(:/Images/go.jpg);
-width: 90px;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="4">
-         <widget class="QPushButton" name="refreshButton">
-          <property name="styleSheet">
-           <string notr="true">background-image: url(:/Images/refresh.jpg);
-width: 30px;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0" colspan="5">
          <widget class="QWebView" name="webView">
           <property name="url">
            <url>
@@ -82,18 +86,6 @@ width: 30px;</string>
          </widget>
         </item>
        </layout>
-       <zorder>refreshButton</zorder>
-       <zorder>forwardButton</zorder>
-       <zorder>backButton</zorder>
-       <zorder>urlEdit</zorder>
-       <zorder>webView</zorder>
-       <zorder>goButton</zorder>
-       <zorder>refreshButton</zorder>
-       <zorder>forwardButton</zorder>
-       <zorder>backButton</zorder>
-       <zorder>urlEdit</zorder>
-       <zorder>webView</zorder>
-       <zorder>goButton</zorder>
       </widget>
      </widget>
     </item>

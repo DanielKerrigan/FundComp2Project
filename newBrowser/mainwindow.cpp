@@ -29,7 +29,9 @@ void MainWindow::on_forwardButton_clicked(){
 }
 // Load the URL in the URL Edit Box when go is clicked
 void MainWindow::on_goButton_clicked(){
+    QUrl qurl = ui->webView->url();
     ui->webView->load((ui->urlEdit->text()));
+    ui->tabWidget->setTabText(1, qurl.toString());
 }
 // Reload the page when the refresh button is clicked
 void MainWindow::on_refreshButton_clicked(){
@@ -55,6 +57,7 @@ void MainWindow::updateUrlBox(){
 void MainWindow::on_actionNew_Tab_triggered()
 {
     QWebView *myNewWebView = new QWebView();
-    ui->tabWidget->addTab(myNewWebView, "Tab 2");
+    ui->tabWidget->addTab(myNewWebView, "Test");
     myNewWebView->setUrl(QUrl("http://www.google.com"));
+
 }
