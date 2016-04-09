@@ -23,7 +23,9 @@ void MainWindow::on_forwardButton_clicked(){
 }
 // Load the URL in the URL Edit Box when go is clicked
 void MainWindow::on_goButton_clicked(){
+    QUrl qurl = ui->webView->url();
     ui->webView->load((ui->urlEdit->text()));
+    ui->tabWidget->setTabText(1, qurl.toString());
 }
 // Reload the page when the refresh button is clicked
 void MainWindow::on_refreshButton_clicked(){
@@ -48,6 +50,13 @@ void MainWindow::updateUrlBox(){
         QString html = QString("<html><body><h1>%1 is blocked!</h1><img src='qrc:/Images/emrich.png'></body></html>").arg(qurl.host());
         ui->webView->setHtml(html);
     }
+}
+
+void MainWindow::on_actionNew_Tab_triggered()
+{
+    QWebView *myNewWebView = new QWebView();
+    ui->tabWidget->addTab(myNewWebView, "Test");
+    myNewWebView->setUrl(QUrl("http://www.google.com"));
 }
 
 void MainWindow::on_actionBack_triggered(){

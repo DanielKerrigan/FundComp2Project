@@ -26,6 +26,8 @@ private slots:
     void on_actionBack_triggered();
     void on_actionForward_triggered();
 
+    void on_actionNew_Tab_triggered();
+
 private:
     Ui::MainWindow *ui;
     url_collections urls;
