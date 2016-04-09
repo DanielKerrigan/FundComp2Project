@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/Images">
+        <file>images.qrc</file>
+        <file>emrich.png</file>
+    </qresource>
+</RCC>

@@ -1,39 +1,46 @@
-#include "dialog.h"
-#include "ui_dialog.h"
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
 
-Dialog::Dialog(QWidget *parent) : QDialog(parent), ui(new Ui::Dialog){
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
+
     ui->setupUi(this);
-    // loads preset homepage
+
     ui->webView->load(QUrl("http://www.google.com"));
-    // When url changes, call updateUrlBox
+
     connect(ui->webView, SIGNAL(urlChanged(const QUrl &)), this, SLOT(updateUrlBox()));
+
+//    QWebView *webView = new QWebView;
+//    QVBoxLayout *layout = new QVBoxLayout;
+//    this->centralWidget()->setLayout(layout);
+//    layout->addWidget(webView);
 }
 
-Dialog::~Dialog(){
+MainWindow::~MainWindow(){
     delete ui;
 }
+
 // Go back a page when the back button is clicked
-void Dialog::on_backButton_clicked(){
+void MainWindow::on_backButton_clicked(){
     ui->webView->back();
 }
 // Go forward a page when the forward button is clicked
-void Dialog::on_forwardButton_clicked(){
+void MainWindow::on_forwardButton_clicked(){
     ui->webView->forward();
 }
 // Load the URL in the URL Edit Box when go is clicked
-void Dialog::on_goButton_clicked(){
+void MainWindow::on_goButton_clicked(){
     ui->webView->load((ui->urlEdit->text()));
 }
 // Reload the page when the refresh button is clicked
-void Dialog::on_refreshButton_clicked(){
+void MainWindow::on_refreshButton_clicked(){
     ui->webView->reload();
 }
 // When enter is pressed in the URL edit box, load the page
-void Dialog::on_urlEdit_returnPressed(){
+void MainWindow::on_urlEdit_returnPressed(){
     on_goButton_clicked();
 }
 // Updat the text in the URL Edit Box to match the true URL
-void Dialog::updateUrlBox(){
+void MainWindow::updateUrlBox(){
     QUrl qurl = ui->webView->url();
     if(!urls.is_blocked(qurl.host())){
         urls.addToHistory(qurl.toString());

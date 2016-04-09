@@ -1,92 +1,56 @@
-/****************************************************************************
-**
-** Copyright (C) 2015 The Qt Company Ltd.
-** Contact: http://www.qt.io/licensing/
-**
-** This file is part of the examples of the Qt Toolkit.
-**
-** $QT_BEGIN_LICENSE:BSD$
-** You may use this file under the terms of the BSD license as follows:
-**
-** "Redistribution and use in source and binary forms, with or without
-** modification, are permitted provided that the following conditions are
-** met:
-**   * Redistributions of source code must retain the above copyright
-**     notice, this list of conditions and the following disclaimer.
-**   * Redistributions in binary form must reproduce the above copyright
-**     notice, this list of conditions and the following disclaimer in
-**     the documentation and/or other materials provided with the
-**     distribution.
-**   * Neither the name of The Qt Company Ltd nor the names of its
-**     contributors may be used to endorse or promote products derived
-**     from this software without specific prior written permission.
-**
-**
-** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-** "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
-**
-** $QT_END_LICENSE$
-**
-****************************************************************************/
-
+#include "dialog.h"
+#include "ui_dialog.h"
 #include <QtWidgets>
+#include <QMainWindow>
 
-#include "mainwindow.h"
-
-MainWindow::MainWindow()
-{
-    QWidget *widget = new QWidget;
-    setCentralWidget(widget);
-
-    QWidget *topFiller = new QWidget;
-    topFiller->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-#ifdef Q_OS_SYMBIAN
-    infoLabel = new QLabel(tr("<i>Choose a menu option</i>"));
-#else
-    infoLabel = new QLabel(tr("<i>Choose a menu option, or right-click to "
-                              "invoke a context menu</i>"));
-#endif
-    infoLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
-    infoLabel->setAlignment(Qt::AlignCenter);
-
-    QWidget *bottomFiller = new QWidget;
-    bottomFiller->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->setMargin(5);
-    layout->addWidget(topFiller);
-    layout->addWidget(infoLabel);
-    layout->addWidget(bottomFiller);
-    widget->setLayout(layout);
-
+Dialog::Dialog(QWidget *parent) : QDialog(parent), ui(new Ui::Dialog){
+    ui->setupUi(this);
     createActions();
     createMenus();
-
-#ifndef Q_OS_SYMBIAN
-    QString message = tr("A context menu is available by right-clicking");
-    statusBar()->showMessage(message);
-#endif
-
-    setWindowTitle(tr("Menus"));
-    setMinimumSize(160, 160);
-    resize(480, 320);
-
-    //ui->webView->load(QUrl("http://www.google.com"));
-    //connect(ui->webView, SIGNAL(urlChanged(const QUrl &)), this, SLOT(updateUrlBox()));
-
+    // loads preset homepage
+    ui->webView->load(QUrl("http://www.google.com"));
+    // When url changes, call updateUrlBox
+    connect(ui->webView, SIGNAL(urlChanged(const QUrl &)), this, SLOT(updateUrlBox()));
 }
 
-void MainWindow::contextMenuEvent(QContextMenuEvent *event)
+Dialog::~Dialog(){
+    delete ui;
+}
+
+// Go back a page when the back button is clicked
+void Dialog::on_backButton_clicked(){
+    ui->webView->back();
+}
+// Go forward a page when the forward button is clicked
+void Dialog::on_forwardButton_clicked(){
+    ui->webView->forward();
+}
+// Load the URL in the URL Edit Box when go is clicked
+void Dialog::on_goButton_clicked(){
+    ui->webView->load((ui->urlEdit->text()));
+}
+// Reload the page when the refresh button is clicked
+void Dialog::on_refreshButton_clicked(){
+    ui->webView->reload();
+}
+// When enter is pressed in the URL edit box, load the page
+void Dialog::on_urlEdit_returnPressed(){
+    on_goButton_clicked();
+}
+// Updat the text in the URL Edit Box to match the true URL
+void Dialog::updateUrlBox(){
+    QUrl qurl = ui->webView->url();
+    if(!urls.is_blocked(qurl.host())){
+        urls.addToHistory(qurl.toString());
+        ui->urlEdit->setText(qurl.toString());
+    } else {
+        // website is blocked
+        QString html = QString("<html><body><h1>%1 is blocked!</h1><img src='qrc:/Images/emrich.png'></body></html>").arg(qurl.host());
+        ui->webView->setHtml(html);
+    }
+}
+
+void Dialog::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu menu(this);
     menu.addAction(cutAct);
@@ -95,92 +59,92 @@ void MainWindow::contextMenuEvent(QContextMenuEvent *event)
     menu.exec(event->globalPos());
 }
 
-void MainWindow::newFile()
+void Dialog::newFile()
 {
     infoLabel->setText(tr("Invoked <b>File|New</b>"));
 }
 
-void MainWindow::open()
+void Dialog::open()
 {
     infoLabel->setText(tr("Invoked <b>File|Open</b>"));
 }
 
-void MainWindow::save()
+void Dialog::save()
 {
     infoLabel->setText(tr("Invoked <b>File|Save</b>"));
 }
 
-void MainWindow::print()
+void Dialog::print()
 {
     infoLabel->setText(tr("Invoked <b>File|Print</b>"));
 }
 
-void MainWindow::undo()
+void Dialog::undo()
 {
     infoLabel->setText(tr("Invoked <b>Edit|Undo</b>"));
 }
 
-void MainWindow::redo()
+void Dialog::redo()
 {
     infoLabel->setText(tr("Invoked <b>Edit|Redo</b>"));
 }
 
-void MainWindow::cut()
+void Dialog::cut()
 {
     infoLabel->setText(tr("Invoked <b>Edit|Cut</b>"));
 }
 
-void MainWindow::copy()
+void Dialog::copy()
 {
     infoLabel->setText(tr("Invoked <b>Edit|Copy</b>"));
 }
 
-void MainWindow::paste()
+void Dialog::paste()
 {
     infoLabel->setText(tr("Invoked <b>Edit|Paste</b>"));
 }
 
-void MainWindow::bold()
+void Dialog::bold()
 {
     infoLabel->setText(tr("Invoked <b>Edit|Format|Bold</b>"));
 }
 
-void MainWindow::italic()
+void Dialog::italic()
 {
     infoLabel->setText(tr("Invoked <b>Edit|Format|Italic</b>"));
 }
 
-void MainWindow::leftAlign()
+void Dialog::leftAlign()
 {
     infoLabel->setText(tr("Invoked <b>Edit|Format|Left Align</b>"));
 }
 
-void MainWindow::rightAlign()
+void Dialog::rightAlign()
 {
     infoLabel->setText(tr("Invoked <b>Edit|Format|Right Align</b>"));
 }
 
-void MainWindow::justify()
+void Dialog::justify()
 {
     infoLabel->setText(tr("Invoked <b>Edit|Format|Justify</b>"));
 }
 
-void MainWindow::center()
+void Dialog::center()
 {
     infoLabel->setText(tr("Invoked <b>Edit|Format|Center</b>"));
 }
 
-void MainWindow::setLineSpacing()
+void Dialog::setLineSpacing()
 {
     infoLabel->setText(tr("Invoked <b>Edit|Format|Set Line Spacing</b>"));
 }
 
-void MainWindow::setParagraphSpacing()
+void Dialog::setParagraphSpacing()
 {
     infoLabel->setText(tr("Invoked <b>Edit|Format|Set Paragraph Spacing</b>"));
 }
 
-void MainWindow::about()
+void Dialog::about()
 {
     infoLabel->setText(tr("Invoked <b>Help|About</b>"));
     QMessageBox::about(this, tr("About Menu"),
@@ -188,12 +152,12 @@ void MainWindow::about()
                "menu-bar menus and context menus."));
 }
 
-void MainWindow::aboutQt()
+void Dialog::aboutQt()
 {
     infoLabel->setText(tr("Invoked <b>Help|About Qt</b>"));
 }
 
-void MainWindow::createActions()
+void Dialog::createActions()
 {
     newAct = new QAction(tr("&New"), this);
     newAct->setShortcuts(QKeySequence::New);
@@ -319,7 +283,7 @@ void MainWindow::createActions()
     leftAlignAct->setChecked(true);
 }
 
-void MainWindow::createMenus()
+void Dialog::createMenus()
 {
     fileMenu = menuBar()->addMenu(tr("&File"));
     fileMenu->addAction(newAct);

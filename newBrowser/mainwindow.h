@@ -1,40 +1,32 @@
-#ifndef DIALOG_H
-#define DIALOG_H
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
-#include <QDialog>
-#include <QWebView>
-#include <QWebHistory>
-#include <QDebug>
+#include <QMainWindow>
 #include "url_collections.h"
 
 namespace Ui {
-class Dialog;
+class MainWindow;
 }
 
-class Dialog : public QDialog
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit Dialog(QWidget *parent = 0);
-    ~Dialog();
+    explicit MainWindow(QWidget *parent = 0);
+    ~MainWindow();
 
 private slots:
     void on_backButton_clicked();
-
     void on_forwardButton_clicked();
-
     void on_goButton_clicked();
-
     void on_refreshButton_clicked();
-
     void on_urlEdit_returnPressed();
-
     void updateUrlBox();
 
 private:
-    Ui::Dialog *ui;
+    Ui::MainWindow *ui;
     url_collections urls;
 };
 
-#endif // DIALOG_H
+#endif // MAINWINDOW_H
