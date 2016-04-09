@@ -17,15 +17,28 @@
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QPushButton" name="backButton">
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/Images/back.jpg);
+width: 90px;</string>
+      </property>
       <property name="text">
-       <string>&lt;-</string>
+       <string/>
       </property>
      </widget>
     </item>
-    <item row="0" column="1">
-     <widget class="QPushButton" name="forwardButton">
+    <item row="1" column="0" colspan="5">
+     <widget class="QWebView" name="webView">
+      <property name="url">
+       <url>
+        <string>about:blank</string>
+       </url>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="QPushButton" name="refreshButton">
       <property name="text">
-       <string>-&gt;</string>
+       <string>Ref</string>
       </property>
      </widget>
     </item>
@@ -39,19 +52,14 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="4">
-     <widget class="QPushButton" name="refreshButton">
-      <property name="text">
-       <string>Ref</string>
+    <item row="0" column="1">
+     <widget class="QPushButton" name="forwardButton">
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/Images/forward.jpg);
+width: 90px;</string>
       </property>
-     </widget>
-    </item>
-    <item row="1" column="0" colspan="5">
-     <widget class="QWebView" name="webView">
-      <property name="url">
-       <url>
-        <string>about:blank</string>
-       </url>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </item>
@@ -63,7 +71,7 @@
      <x>0</x>
      <y>0</y>
      <width>785</width>
-     <height>22</height>
+     <height>31</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

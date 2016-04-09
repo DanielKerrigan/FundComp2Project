@@ -2,5 +2,7 @@
     <qresource prefix="/Images">
         <file>images.qrc</file>
         <file>emrich.png</file>
+        <file>back.jpg</file>
+        <file>forward.jpg</file>
     </qresource>
 </RCC>
