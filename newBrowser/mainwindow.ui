@@ -15,16 +15,19 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout_3">
-    <item row="0" column="0">
-     <widget class="QPushButton" name="backButton">
+    <item row="0" column="4">
+     <widget class="QPushButton" name="refreshButton">
       <property name="styleSheet">
-       <string notr="true">background-image: url(:/Images/back.jpg);
-width: 90px;</string>
+       <string notr="true">background-image: url(:/Images/refresh.jpg);
+width: 30px;</string>
       </property>
       <property name="text">
        <string/>
       </property>
      </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLineEdit" name="urlEdit"/>
     </item>
     <item row="0" column="1">
      <widget class="QPushButton" name="forwardButton">
@@ -37,9 +40,6 @@ width: 90px;</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="2">
-     <widget class="QLineEdit" name="urlEdit"/>
-    </item>
     <item row="0" column="3">
      <widget class="QPushButton" name="goButton">
       <property name="styleSheet">
@@ -51,11 +51,11 @@ width: 90px;</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="4">
-     <widget class="QPushButton" name="refreshButton">
+    <item row="0" column="0">
+     <widget class="QPushButton" name="backButton">
       <property name="styleSheet">
-       <string notr="true">background-image: url(:/Images/refresh.jpg);
-width: 30px;</string>
+       <string notr="true">background-image: url(:/Images/back.jpg);
+width: 90px;</string>
       </property>
       <property name="text">
        <string/>
@@ -71,17 +71,7 @@ width: 30px;</string>
        <attribute name="title">
         <string>Tab 1</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0">
-         <widget class="QWebView" name="webView">
-          <property name="url">
-           <url>
-            <string>about:blank</string>
-           </url>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       <layout class="QGridLayout" name="gridLayout"/>
       </widget>
      </widget>
     </item>
@@ -199,13 +189,6 @@ width: 30px;</string>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>QWebView</class>
-   <extends>QWidget</extends>
-   <header>QtWebKitWidgets/QWebView</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
