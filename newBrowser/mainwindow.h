@@ -24,6 +24,12 @@ private slots:
     void on_urlEdit_returnPressed();
     void updateUrlBox();
 
+    void on_actionBack_triggered();
+
+    void on_actionForward_triggered();
+
+    void on_actionCopy_triggered();
+
 private:
     Ui::MainWindow *ui;
     url_collections urls;
