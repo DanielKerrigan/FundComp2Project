@@ -40,7 +40,7 @@ void Dialog::updateUrlBox(){
         ui->urlEdit->setText(qurl.toString());
     } else {
         // website is blocked
-        QString html = QString("<html><body><h1>%1 is blocked!</h1></body></html>").arg(qurl.host());
+        QString html = QString("<html><body><h1>%1 is blocked!</h1><img src='qrc:/Images/emrich.png'></body></html>").arg(qurl.host());
         ui->webView->setHtml(html);
     }
 }
