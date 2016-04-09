@@ -7,9 +7,8 @@
  */
 
 #include <vector>
-#include <QString>
 #include <set>
-#include <fstream>
+#include <QString>
 #include <QFile>
 #include <QTextStream>
 class url_collections
@@ -20,6 +19,7 @@ public:
     void addToHistory(QString);
     void addToBlocked(QString);
     void addToBookmarks(QString);
+    bool is_blocked(QString);
 private:
     std::vector<QString> history;
     std::set<QString> blocked;

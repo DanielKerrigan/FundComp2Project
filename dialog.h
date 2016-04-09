@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QWebView>
 #include <QWebHistory>
+#include <QDebug>
 #include "url_collections.h"
 
 namespace Ui {
