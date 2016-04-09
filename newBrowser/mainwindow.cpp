@@ -2,17 +2,11 @@
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
-
     ui->setupUi(this);
-
-    ui->webView->load(QUrl("http://www.google.com"));
-
+    // set homepage to google
+    ui->webView->load(QUrl("https://www.google.com"));
+    // when the url is changed, update the url edit box
     connect(ui->webView, SIGNAL(urlChanged(const QUrl &)), this, SLOT(updateUrlBox()));
-
-//    QWebView *webView = new QWebView;
-//    QVBoxLayout *layout = new QVBoxLayout;
-//    this->centralWidget()->setLayout(layout);
-//    layout->addWidget(webView);
 }
 
 MainWindow::~MainWindow(){
@@ -44,11 +38,15 @@ void MainWindow::on_urlEdit_returnPressed(){
 // Updat the text in the URL Edit Box to match the true URL
 void MainWindow::updateUrlBox(){
     QUrl qurl = ui->webView->url();
-    if(!urls.is_blocked(qurl.host())){
-        urls.addToHistory(qurl.toString());
-        ui->urlEdit->setText(qurl.toString());
-    } else {
-        // website is blocked
+    QString qurlStr = qurl.toString();
+    if(!urls.is_blocked(qurl.host())){ // if the website is not blocked
+        // if the url is not empty, this would happen when we load html below
+        if(qurlStr.size() > 0){
+            urls.addToHistory(qurlStr);
+            ui->urlEdit->setText(qurlStr);
+        }
+    } else {  // website is blocked
+        // load html for blocked page
         QString html = QString("<html><body><h1>%1 is blocked!</h1><img src='qrc:/Images/emrich.png'></body></html>").arg(qurl.host());
         ui->webView->setHtml(html);
     }
@@ -59,5 +57,12 @@ void MainWindow::on_actionNew_Tab_triggered()
     QWebView *myNewWebView = new QWebView();
     ui->tabWidget->addTab(myNewWebView, "Test");
     myNewWebView->setUrl(QUrl("http://www.google.com"));
+}
 
+void MainWindow::on_actionBack_triggered(){
+    on_backButton_clicked();
+}
+
+void MainWindow::on_actionForward_triggered(){
+    on_forwardButton_clicked();
 }

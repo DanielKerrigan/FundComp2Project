@@ -23,6 +23,8 @@ private slots:
     void on_refreshButton_clicked();
     void on_urlEdit_returnPressed();
     void updateUrlBox();
+    void on_actionBack_triggered();
+    void on_actionForward_triggered();
 
     void on_actionNew_Tab_triggered();
 
