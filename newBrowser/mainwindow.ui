@@ -79,7 +79,7 @@ width: 90px;</string>
      <x>0</x>
      <y>0</y>
      <width>785</width>
-     <height>31</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -100,8 +100,29 @@ width: 90px;</string>
     <addaction name="actionCopy"/>
     <addaction name="actionPaste"/>
    </widget>
+   <widget class="QMenu" name="menuHistory">
+    <property name="title">
+     <string>History</string>
+    </property>
+    <addaction name="actionView_History"/>
+   </widget>
+   <widget class="QMenu" name="menuBookmarks">
+    <property name="title">
+     <string>Bookmarks</string>
+    </property>
+    <addaction name="actionAdd_Bookmark"/>
+   </widget>
+   <widget class="QMenu" name="menuBlocked">
+    <property name="title">
+     <string>Blocked</string>
+    </property>
+    <addaction name="actionBlock_site"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
+   <addaction name="menuHistory"/>
+   <addaction name="menuBookmarks"/>
+   <addaction name="menuBlocked"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -145,6 +166,21 @@ width: 90px;</string>
   <action name="actionNew_Window">
    <property name="text">
     <string>New Window</string>
+   </property>
+  </action>
+  <action name="actionAdd_Bookmark">
+   <property name="text">
+    <string>Add Bookmark</string>
+   </property>
+  </action>
+  <action name="actionBlock_site">
+   <property name="text">
+    <string>Block site</string>
+   </property>
+  </action>
+  <action name="actionView_History">
+   <property name="text">
+    <string>View History</string>
    </property>
   </action>
  </widget>
