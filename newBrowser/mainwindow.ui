@@ -16,57 +16,53 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout_3">
     <item row="0" column="0">
-     <layout class="QGridLayout" name="gridLayout_2">
-      <item row="0" column="0">
-       <widget class="QPushButton" name="backButton">
-        <property name="styleSheet">
-         <string notr="true">background-image: url(:/Images/back.jpg);
+     <widget class="QPushButton" name="backButton">
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/Images/back.jpg);
 width: 90px;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QPushButton" name="forwardButton">
-        <property name="styleSheet">
-         <string notr="true">background-image: url(:/Images/forward.jpg);
-width: 90px;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2">
-       <widget class="QLineEdit" name="urlEdit"/>
-      </item>
-      <item row="0" column="3">
-       <widget class="QPushButton" name="goButton">
-        <property name="styleSheet">
-         <string notr="true">background-image: url(:/Images/go.jpg);
-width: 90px;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="4">
-       <widget class="QPushButton" name="refreshButton">
-        <property name="styleSheet">
-         <string notr="true">background-image: url(:/Images/refresh.jpg);
-width: 30px;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-     </layout>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </item>
-    <item row="1" column="0">
+    <item row="0" column="1">
+     <widget class="QPushButton" name="forwardButton">
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/Images/forward.jpg);
+width: 90px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLineEdit" name="urlEdit"/>
+    </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="goButton">
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/Images/go.jpg);
+width: 90px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="QPushButton" name="refreshButton">
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/Images/refresh.jpg);
+width: 30px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="5">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
        <number>0</number>
@@ -89,20 +85,6 @@ width: 30px;</string>
       </widget>
      </widget>
     </item>
-    <item row="0" column="3">
-     <widget class="QPushButton" name="goButton">
-      <property name="styleSheet">
-       <string notr="true">background-image: url(:/Images/go.jpg);
-width: 90px;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
-     <widget class="QLineEdit" name="urlEdit"/>
-    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -111,7 +93,7 @@ width: 90px;</string>
      <x>0</x>
      <y>0</y>
      <width>1393</width>
-     <height>31</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

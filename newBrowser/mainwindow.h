@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QWebView>
 #include "url_collections.h"
 
 namespace Ui {
@@ -25,11 +26,12 @@ private slots:
     void updateUrlBox();
     void on_actionBack_triggered();
     void on_actionForward_triggered();
-
     void on_actionNew_Tab_triggered();
+    void tabSelected();
 
 private:
     Ui::MainWindow *ui;
+    QWebView* current;
     url_collections urls;
 };
 
