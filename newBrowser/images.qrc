@@ -4,5 +4,7 @@
         <file>emrich.png</file>
         <file>back.jpg</file>
         <file>forward.jpg</file>
+        <file>go.jpg</file>
+        <file>refresh.jpg</file>
     </qresource>
 </RCC>

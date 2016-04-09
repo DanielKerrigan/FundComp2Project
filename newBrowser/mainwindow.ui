@@ -37,8 +37,12 @@ width: 90px;</string>
     </item>
     <item row="0" column="4">
      <widget class="QPushButton" name="refreshButton">
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/Images/refresh.jpg);
+width: 30px;</string>
+      </property>
       <property name="text">
-       <string>Ref</string>
+       <string/>
       </property>
      </widget>
     </item>
@@ -47,8 +51,12 @@ width: 90px;</string>
     </item>
     <item row="0" column="3">
      <widget class="QPushButton" name="goButton">
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/Images/go.jpg);
+width: 90px;</string>
+      </property>
       <property name="text">
-       <string>Go</string>
+       <string/>
       </property>
      </widget>
     </item>
