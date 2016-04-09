@@ -14,11 +14,15 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        dialog.cpp
+        dialog.cpp \
+    url_collections.cpp
 
-HEADERS  += dialog.h
+HEADERS  += dialog.h \
+    url_collections.h
 
 FORMS    += dialog.ui
 
 RESOURCES += \
     images.qrc
+
+DISTFILES +=
