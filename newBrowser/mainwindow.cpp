@@ -51,8 +51,6 @@ void MainWindow::updateUrlBox(){
             urls.addToHistory(qurlStr);
             ui->urlEdit->setText(qurlStr);
             ui->tabWidget->setTabText(ui->tabWidget->currentIndex(), qurl.host());
-        } else {
-            qDebug() << "too short";
         }
     } else {  // website is blocked
         // load html for blocked page
@@ -79,5 +77,6 @@ void MainWindow::on_actionForward_triggered(){
 // change current to be the web view of the selected tab. update tab title
 void MainWindow::tabSelected(){
     current = (QWebView*) ui->tabWidget->currentWidget();
+    connect(current, SIGNAL(urlChanged(const QUrl &)), this, SLOT(updateUrlBox()));
     ui->urlEdit->setText(current->url().toString());
 }
