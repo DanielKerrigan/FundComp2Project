@@ -15,6 +15,36 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(current, SIGNAL(urlChanged(const QUrl &)), this, SLOT(updateUrlBox()));
     // when a tab is cicked
     connect(ui->tabWidget, SIGNAL(currentChanged(int)), this, SLOT(tabSelected()));
+
+    //timer implementation
+    //tried to work all of this into its own class haven't figured it out yet
+    progressBar = new QProgressBar();
+    progressBar->setMinimum(0);
+    progressBar->setMaximum(10800);
+    progressBar->setValue(0);
+    lineEdit = new QLineEdit();
+    //lineEdit->setMaximumWidth(30);
+    lineEdit->setAlignment(Qt::AlignHCenter);
+    QPushButton *start_button = new QPushButton;
+    start_button->setText("Start");
+    //QLCDNumber *timeLeft = new QLCDNumber();
+    label = new QLabel();
+    label->setAlignment(Qt::AlignCenter);
+
+    QVBoxLayout *layout = new QVBoxLayout();
+    layout->addWidget(label);
+    layout->addWidget(lineEdit);
+    layout->addWidget(start_button);
+    //layout->addWidget(progressBar);
+    //layout->addWidget(timeLeft);
+
+
+    QWidget *wrapper = new QWidget();
+    wrapper->setLayout(layout);
+    wrapper->show();
+    //setCentralWidget(wrapper);
+
+    QObject::connect(start_button, SIGNAL(clicked()), this, SLOT(onClicked()));
 }
 
 MainWindow::~MainWindow(){
@@ -80,3 +110,40 @@ void MainWindow::tabSelected(){
     connect(current, SIGNAL(urlChanged(const QUrl &)), this, SLOT(updateUrlBox()));
     ui->urlEdit->setText(current->url().toString());
 }
+
+//timer methods
+void MainWindow::onClicked(){
+
+    QString stringValue = lineEdit->text();
+    int startValue = stringValue.toInt();
+    // user inputs number of minutes, timer is in seconds
+    startValue = startValue*60;
+    progressBar->setValue(startValue);
+    timer = new QTimer();
+    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
+    timer->start(1000);
+
+}
+
+
+void MainWindow::onTimeout()
+{
+    int value = progressBar->value();
+    //if value == 0, exit everything
+    int minutes = value/60;
+    int seconds = value%60;
+    QString mstring = QString::number(minutes);
+    QString sstring = QString::number(seconds);
+    QString display = "";
+    if( seconds < 10){
+        display = mstring + ":0" + sstring;
+    }
+    else{
+        display = mstring + ":" + sstring;
+    }
+    label->setText(display);
+    value--;
+    progressBar->setValue(value);
+
+}
+

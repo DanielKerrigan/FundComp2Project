@@ -3,6 +3,18 @@
 
 #include <QMainWindow>
 #include <QWebView>
+#include <QApplication>
+#include <QVBoxLayout>
+#include <QTimer>
+#include <QProgressBar>
+#include <QLineEdit>
+#include <QMessageBox>
+#include <QDebug>
+#include <QPushButton>
+#include <QLCDNumber>
+#include <QLabel>
+#include <QTime>
+#include <string>
 #include "url_collections.h"
 
 namespace Ui {
@@ -12,6 +24,10 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+    QTimer *timer;
+    QProgressBar *progressBar;
+    QLineEdit *lineEdit;
+    QLabel *label;
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -28,6 +44,8 @@ private slots:
     void on_actionForward_triggered();
     void on_actionNew_Tab_triggered();
     void tabSelected();
+    void onTimeout();
+    void onClicked();
 
 private:
     Ui::MainWindow *ui;
