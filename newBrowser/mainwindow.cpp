@@ -81,41 +81,13 @@ void MainWindow::tabSelected(){
     ui->urlEdit->setText(current->url().toString());
 }
 
-//timer methods
-void MainWindow::onClicked(){
-
-    QString stringValue = lineEdit->text();
-    int startValue = stringValue.toInt();
-    // user inputs number of minutes, timer is in seconds
-    startValue = startValue*60;
-    progressBar->setValue(startValue);
-    timer = new QTimer();
-    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
-    timer->start(1000);
-
+void MainWindow::on_actionAdd_Bookmark_triggered(){
+    urls.addToBookmarks(current->url().toString());
 }
 
-
-void MainWindow::onTimeout(){
-    int value = progressBar->value();
-    //if value == 0, exit everything
-    int minutes = value/60;
-    int seconds = value%60;
-    QString mstring = QString::number(minutes);
-    QString sstring = QString::number(seconds);
-    QString display = "";
-    if( seconds < 10){
-        display = mstring + ":0" + sstring;
-    }
-    else{
-        display = mstring + ":" + sstring;
-    }
-    label->setText(display);
-    value--;
-    progressBar->setValue(value);
-
+void MainWindow::on_actionBlock_site_triggered(){
+    urls.addToBlocked(current->url().host());
 }
-
 
 void MainWindow::on_actionNew_Timer_triggered(){
     //timer implementation
@@ -148,17 +120,8 @@ void MainWindow::on_actionNew_Timer_triggered(){
     QObject::connect(start_button, SIGNAL(clicked()), this, SLOT(onClicked()));
 }
 
-void MainWindow::on_actionAdd_Bookmark_triggered(){
-    urls.addToBookmarks(current->url().toString());
-}
-
-void MainWindow::on_actionBlock_site_triggered(){
-    urls.addToBlocked(current->url().host());
-}
-
 //timer methods
 void MainWindow::onClicked(){
-
     QString stringValue = lineEdit->text();
     int startValue = stringValue.toInt();
     // user inputs number of minutes, timer is in seconds
@@ -170,9 +133,7 @@ void MainWindow::onClicked(){
 
 }
 
-
-void MainWindow::onTimeout()
-{
+void MainWindow::onTimeout(){
     int value = progressBar->value();
     if( value == 0){
         close();
