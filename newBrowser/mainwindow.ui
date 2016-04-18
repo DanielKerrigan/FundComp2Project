@@ -122,11 +122,18 @@ width: 90px;</string>
     </property>
     <addaction name="actionBlock_site"/>
    </widget>
+   <widget class="QMenu" name="menuTimer">
+    <property name="title">
+     <string>Timer</string>
+    </property>
+    <addaction name="actionNew_Timer"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuHistory"/>
    <addaction name="menuBookmarks"/>
    <addaction name="menuBlocked"/>
+   <addaction name="menuTimer"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -185,6 +192,11 @@ width: 90px;</string>
   <action name="actionView_History">
    <property name="text">
     <string>View History</string>
+   </property>
+  </action>
+  <action name="actionNew_Timer">
+   <property name="text">
+    <string>New Timer</string>
    </property>
   </action>
  </widget>
