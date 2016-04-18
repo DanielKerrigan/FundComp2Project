@@ -133,22 +133,25 @@ void MainWindow::onClicked(){
 void MainWindow::onTimeout()
 {
     int value = progressBar->value();
-    //if value == 0, exit everything
-    int minutes = value/60;
-    int seconds = value%60;
-    QString mstring = QString::number(minutes);
-    QString sstring = QString::number(seconds);
-    QString display = "";
-    if( seconds < 10){
-        display = mstring + ":0" + sstring;
+    if( value == 0){
+        close();
+        qApp->exit();
+    }else{
+        int minutes = value/60;
+        int seconds = value%60;
+        QString mstring = QString::number(minutes);
+        QString sstring = QString::number(seconds);
+        QString display = "";
+        if( seconds < 10){
+           display = mstring + ":0" + sstring;
+        }
+        else{
+          display = mstring + ":" + sstring;
+        }
+        label->setText(display);
+        value--;
+        progressBar->setValue(value);
     }
-    else{
-        display = mstring + ":" + sstring;
-    }
-    label->setText(display);
-    value--;
-    progressBar->setValue(value);
-
 }
 
 
