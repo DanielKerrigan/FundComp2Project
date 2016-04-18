@@ -16,35 +16,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     // when a tab is cicked
     connect(ui->tabWidget, SIGNAL(currentChanged(int)), this, SLOT(tabSelected()));
 
-    //timer implementation
-    //tried to work all of this into its own class haven't figured it out yet
-    progressBar = new QProgressBar();
-    progressBar->setMinimum(0);
-    progressBar->setMaximum(10800);
-    progressBar->setValue(0);
-    lineEdit = new QLineEdit();
-    //lineEdit->setMaximumWidth(30);
-    lineEdit->setAlignment(Qt::AlignHCenter);
-    QPushButton *start_button = new QPushButton;
-    start_button->setText("Start");
-    //QLCDNumber *timeLeft = new QLCDNumber();
-    label = new QLabel();
-    label->setAlignment(Qt::AlignCenter);
 
-    QVBoxLayout *layout = new QVBoxLayout();
-    layout->addWidget(label);
-    layout->addWidget(lineEdit);
-    layout->addWidget(start_button);
-    //layout->addWidget(progressBar);
-    //layout->addWidget(timeLeft);
-
-
-    QWidget *wrapper = new QWidget();
-    wrapper->setLayout(layout);
-    wrapper->show();
-    //setCentralWidget(wrapper);
-
-    QObject::connect(start_button, SIGNAL(clicked()), this, SLOT(onClicked()));
 }
 
 MainWindow::~MainWindow(){
@@ -147,3 +119,36 @@ void MainWindow::onTimeout()
 
 }
 
+
+void MainWindow::on_actionNew_Timer_triggered()
+{
+    //timer implementation
+    //tried to work all of this into its own class haven't figured it out yet
+    progressBar = new QProgressBar();
+    progressBar->setMinimum(0);
+    progressBar->setMaximum(10800);
+    progressBar->setValue(0);
+    lineEdit = new QLineEdit();
+    //lineEdit->setMaximumWidth(30);
+    lineEdit->setAlignment(Qt::AlignHCenter);
+    QPushButton *start_button = new QPushButton;
+    start_button->setText("Start");
+    //QLCDNumber *timeLeft = new QLCDNumber();
+    label = new QLabel();
+    label->setAlignment(Qt::AlignCenter);
+
+    QVBoxLayout *layout = new QVBoxLayout();
+    layout->addWidget(label);
+    layout->addWidget(lineEdit);
+    layout->addWidget(start_button);
+    //layout->addWidget(progressBar);
+    //layout->addWidget(timeLeft);
+
+
+    QWidget *wrapper = new QWidget();
+    wrapper->setLayout(layout);
+    wrapper->show();
+    //setCentralWidget(wrapper);
+
+    QObject::connect(start_button, SIGNAL(clicked()), this, SLOT(onClicked()));
+}

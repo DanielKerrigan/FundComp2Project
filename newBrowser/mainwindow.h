@@ -47,6 +47,8 @@ private slots:
     void onTimeout();
     void onClicked();
 
+    void on_actionNew_Timer_triggered();
+
 private:
     Ui::MainWindow *ui;
     QWebView* current;
