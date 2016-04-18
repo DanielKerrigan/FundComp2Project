@@ -126,8 +126,8 @@ void MainWindow::onClicked(){
         QString stringValue = lineEdit->text();
         int startValue = stringValue.toInt();
 
-        //hide timer
-        //wrapper->hide();
+        //remove lineEdit
+
         //change button
         start_button->setText("Get to Work");
         start_button->setCheckable(true);
