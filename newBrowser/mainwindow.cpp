@@ -120,6 +120,8 @@ void MainWindow::onClicked(){
 
     QString stringValue = lineEdit->text();
     int startValue = stringValue.toInt();
+    //change button
+    //start_button->setText("Get to Work");
     // user inputs number of minutes, timer is in seconds
     startValue = startValue*60;
     progressBar->setValue(startValue);
