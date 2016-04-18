@@ -15,8 +15,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(current, SIGNAL(urlChanged(const QUrl &)), this, SLOT(updateUrlBox()));
     // when a tab is cicked
     connect(ui->tabWidget, SIGNAL(currentChanged(int)), this, SLOT(tabSelected()));
-
-
 }
 
 MainWindow::~MainWindow(){
@@ -98,8 +96,7 @@ void MainWindow::onClicked(){
 }
 
 
-void MainWindow::onTimeout()
-{
+void MainWindow::onTimeout(){
     int value = progressBar->value();
     //if value == 0, exit everything
     int minutes = value/60;
@@ -120,8 +117,7 @@ void MainWindow::onTimeout()
 }
 
 
-void MainWindow::on_actionNew_Timer_triggered()
-{
+void MainWindow::on_actionNew_Timer_triggered(){
     //timer implementation
     //tried to work all of this into its own class haven't figured it out yet
     progressBar = new QProgressBar();
@@ -152,3 +148,13 @@ void MainWindow::on_actionNew_Timer_triggered()
 
     QObject::connect(start_button, SIGNAL(clicked()), this, SLOT(onClicked()));
 }
+
+void MainWindow::on_actionAdd_Bookmark_triggered(){
+    urls.addToBookmarks(current->url().toString());
+}
+
+void MainWindow::on_actionBlock_site_triggered(){
+    urls.addToBlocked(current->url().host());
+}
+
+
