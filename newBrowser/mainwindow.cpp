@@ -103,18 +103,23 @@ void MainWindow::on_actionNew_Timer_triggered(){
     //QLCDNumber *timeLeft = new QLCDNumber();
     label = new QLabel();
     label->setAlignment(Qt::AlignCenter);
+    input_label = new QLabel();
+    input_label->setText("minutes");
 
-    layout = new QVBoxLayout();
-    layout->addWidget(label);
-    layout->addWidget(lineEdit);
-    layout->addWidget(start_button);
+    hlayout1 = new QHBoxLayout();
+    hlayout1->addWidget(lineEdit);
+    hlayout1->addWidget(input_label);
+
+    vlayout = new QVBoxLayout();
+    vlayout->addLayout(hlayout1);
+    vlayout->addWidget(label);
+    vlayout->addWidget(start_button);
     //layout->addWidget(progressBar);
     //layout->addWidget(timeLeft);
 
     wrapper = new QWidget();
-    wrapper->setLayout(layout);
+    wrapper->setLayout(vlayout);
     wrapper->show();
-    //setCentralWidget(wrapper);
 
     QObject::connect(start_button, SIGNAL(clicked()), this, SLOT(onClicked()));
 }
@@ -209,9 +214,11 @@ void MainWindow::on_actionView_Bookmarks_triggered(){
 }
 
 void MainWindow::on_actionShow_Timer_2_triggered(){
-    layout->removeWidget(lineEdit);
+    hlayout1->removeWidget(lineEdit);
+    hlayout1->removeWidget(input_label);
     delete lineEdit;
-    wrapper->setLayout(layout);
+    delete input_label;
+    wrapper->setLayout(vlayout);
     wrapper->show();
 }
 
