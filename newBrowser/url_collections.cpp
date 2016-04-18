@@ -52,7 +52,7 @@ url_collections::~url_collections(){
     QFile bookmarks_file("bookmarks.txt");
     if(bookmarks_file.open(QIODevice::WriteOnly | QIODevice::Truncate)){
         QTextStream stream(&bookmarks_file);
-        for(int i = bookmarks.size()-1; i >= 0; i--){
+        for(unsigned long i = 0; i < bookmarks.size(); i++){
             stream << bookmarks[i] << "\n";
         }
     }
