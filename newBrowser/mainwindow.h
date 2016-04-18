@@ -68,8 +68,10 @@ private:
     QLineEdit *lineEdit;
     QLabel *label;
     QPushButton *start_button;
-    QVBoxLayout *layout;
+    QVBoxLayout *vlayout;
+    QHBoxLayout *hlayout1;
     QWidget *wrapper;
+    QLabel *input_label;
 };
 
 #endif // MAINWINDOW_H
