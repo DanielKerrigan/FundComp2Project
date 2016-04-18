@@ -58,6 +58,18 @@ url_collections::~url_collections(){
     }
 }
 
+std::vector<QString> url_collections::getHistory(){
+    return history;
+}
+
+std::set<QString> url_collections::getBlocked(){
+    return blocked;
+}
+
+std::vector<QString> url_collections::getBookmarks(){
+    return bookmarks;
+}
+
 void url_collections::addToHistory(QString url){
     history.push_back(url);
 }

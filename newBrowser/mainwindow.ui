@@ -115,12 +115,14 @@ width: 90px;</string>
      <string>Bookmarks</string>
     </property>
     <addaction name="actionAdd_Bookmark"/>
+    <addaction name="actionView_Bookmarks"/>
    </widget>
    <widget class="QMenu" name="menuBlocked">
     <property name="title">
      <string>Blocked</string>
     </property>
     <addaction name="actionBlock_site"/>
+    <addaction name="actionView_Blocked"/>
    </widget>
    <widget class="QMenu" name="menuTimer">
     <property name="title">
@@ -197,6 +199,16 @@ width: 90px;</string>
   <action name="actionNew_Timer">
    <property name="text">
     <string>New Timer</string>
+   </property>
+  </action>
+  <action name="actionView_Bookmarks">
+   <property name="text">
+    <string>View Bookmarks</string>
+   </property>
+  </action>
+  <action name="actionView_Blocked">
+   <property name="text">
+    <string>View Blocked</string>
    </property>
   </action>
  </widget>

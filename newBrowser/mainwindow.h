@@ -53,6 +53,12 @@ private slots:
 
     void on_actionBlock_site_triggered();
 
+    void on_actionView_History_triggered();
+
+    void on_actionView_Blocked_triggered();
+
+    void on_actionView_Bookmarks_triggered();
+
 private:
     Ui::MainWindow *ui;
     QWebView* current;

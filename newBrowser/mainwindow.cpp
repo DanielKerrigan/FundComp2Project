@@ -111,7 +111,6 @@ void MainWindow::on_actionNew_Timer_triggered(){
     //layout->addWidget(progressBar);
     //layout->addWidget(timeLeft);
 
-
     QWidget *wrapper = new QWidget();
     wrapper->setLayout(layout);
     wrapper->show();
@@ -154,4 +153,44 @@ void MainWindow::onTimeout(){
         value--;
         progressBar->setValue(value);
     }
+}
+
+// Show history, blocked, and bookmarks in a html page
+// maybe try to reduce duplication in the future.
+// maybe make one function that iterates over a a given container forms the html, etc.
+void MainWindow::on_actionView_History_triggered(){
+    QString html = QString("<html><body><h1>History</h1>");
+    std::vector<QString> hist = urls.getHistory();
+    for(int i = hist.size()-1; i >= 0; i--){
+        html += QString("<a href='%1'>%1</a><br>").arg(hist[i]);
+    }
+    html += QString("</body></html>");
+    current->setHtml(html);
+    ui->urlEdit->setText("");
+    ui->tabWidget->setTabText(ui->tabWidget->currentIndex(), "History");
+}
+
+void MainWindow::on_actionView_Blocked_triggered(){
+    QString html = QString("<html><body><h1>Blocked</h1>");
+    std::set<QString> blocked = urls.getBlocked();
+    std::set<QString>::iterator it;
+    for (it = blocked.begin(); it != blocked.end(); ++it){
+        html += QString("<a href='%1'>%1</a><br>").arg(*it);
+    }
+    html += QString("</body></html>");
+    current->setHtml(html);
+    ui->urlEdit->setText("");
+    ui->tabWidget->setTabText(ui->tabWidget->currentIndex(), "Blocked");
+}
+
+void MainWindow::on_actionView_Bookmarks_triggered(){
+    QString html = QString("<html><body><h1>Bookmarks</h1>");
+    std::vector<QString> bookmarks = urls.getBookmarks();
+    for(int i = bookmarks.size()-1; i >= 0; i--){
+        html += QString("<a href='%1'>%1</a><br>").arg(bookmarks[i]);
+    }
+    html += QString("</body></html>");
+    current->setHtml(html);
+    ui->urlEdit->setText("");
+    ui->tabWidget->setTabText(ui->tabWidget->currentIndex(), "Bookmarks");
 }
