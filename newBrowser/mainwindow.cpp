@@ -15,8 +15,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(current, SIGNAL(urlChanged(const QUrl &)), this, SLOT(updateUrlBox()));
     // when a tab is cicked
     connect(ui->tabWidget, SIGNAL(currentChanged(int)), this, SLOT(tabSelected()));
-
-
 }
 
 MainWindow::~MainWindow(){
@@ -83,8 +81,15 @@ void MainWindow::tabSelected(){
     ui->urlEdit->setText(current->url().toString());
 }
 
-void MainWindow::on_actionNew_Timer_triggered()
-{
+void MainWindow::on_actionAdd_Bookmark_triggered(){
+    urls.addToBookmarks(current->url().toString());
+}
+
+void MainWindow::on_actionBlock_site_triggered(){
+    urls.addToBlocked(current->url().host());
+}
+
+void MainWindow::on_actionNew_Timer_triggered(){
     //timer implementation
     progressBar = new QProgressBar();
     progressBar->setMinimum(0);
@@ -117,7 +122,6 @@ void MainWindow::on_actionNew_Timer_triggered()
 
 //timer methods
 void MainWindow::onClicked(){
-
     QString stringValue = lineEdit->text();
     int startValue = stringValue.toInt();
     //change button
@@ -131,9 +135,7 @@ void MainWindow::onClicked(){
 
 }
 
-
-void MainWindow::onTimeout()
-{
+void MainWindow::onTimeout(){
     int value = progressBar->value();
     if( value == 0){
         close();
@@ -155,6 +157,3 @@ void MainWindow::onTimeout()
         progressBar->setValue(value);
     }
 }
-
-
-
