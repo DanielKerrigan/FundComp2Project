@@ -35,7 +35,7 @@ url_collections::~url_collections(){
     QFile history_file("history.txt");
     if(history_file.open(QIODevice::WriteOnly| QIODevice::Truncate)){
         QTextStream stream(&history_file);
-        for(int i = history.size()-1; i >= 0; i--){
+        for(unsigned long i = 0; i < history.size(); i++){
             stream << history[i] << "\n";
         }
     }
