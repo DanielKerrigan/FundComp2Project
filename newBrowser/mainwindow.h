@@ -24,10 +24,6 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    QTimer *timer;
-    QProgressBar *progressBar;
-    QLineEdit *lineEdit;
-    QLabel *label;
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -59,10 +55,21 @@ private slots:
 
     void on_actionView_Bookmarks_triggered();
 
+    void on_actionShow_Timer_2_triggered();
+
+    void on_actionHide_Timer_triggered();
+
 private:
     Ui::MainWindow *ui;
     QWebView* current;
     url_collections urls;
+    QTimer *timer;
+    QProgressBar *progressBar;
+    QLineEdit *lineEdit;
+    QLabel *label;
+    QPushButton *start_button;
+    QVBoxLayout *layout;
+    QWidget *wrapper;
 };
 
 #endif // MAINWINDOW_H

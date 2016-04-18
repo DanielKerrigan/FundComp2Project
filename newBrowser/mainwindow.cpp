@@ -98,20 +98,20 @@ void MainWindow::on_actionNew_Timer_triggered(){
     lineEdit = new QLineEdit();
     //lineEdit->setMaximumWidth(30);
     lineEdit->setAlignment(Qt::AlignHCenter);
-    QPushButton *start_button = new QPushButton;
+    start_button = new QPushButton;
     start_button->setText("Start");
     //QLCDNumber *timeLeft = new QLCDNumber();
     label = new QLabel();
     label->setAlignment(Qt::AlignCenter);
 
-    QVBoxLayout *layout = new QVBoxLayout();
+    layout = new QVBoxLayout();
     layout->addWidget(label);
     layout->addWidget(lineEdit);
     layout->addWidget(start_button);
     //layout->addWidget(progressBar);
     //layout->addWidget(timeLeft);
 
-    QWidget *wrapper = new QWidget();
+    wrapper = new QWidget();
     wrapper->setLayout(layout);
     wrapper->show();
     //setCentralWidget(wrapper);
@@ -121,14 +121,26 @@ void MainWindow::on_actionNew_Timer_triggered(){
 
 //timer methods
 void MainWindow::onClicked(){
-    QString stringValue = lineEdit->text();
-    int startValue = stringValue.toInt();
-    // user inputs number of minutes, timer is in seconds
-    startValue = startValue*60;
-    progressBar->setValue(startValue);
-    timer = new QTimer();
-    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
-    timer->start(1000);
+    if( start_button->text() == "Start"){
+        QString stringValue = lineEdit->text();
+        int startValue = stringValue.toInt();
+
+        //remove lineEdit
+
+        //change button
+        start_button->setText("Get to Work");
+        start_button->setCheckable(true);
+        start_button->setChecked(true);
+
+        // user inputs number of minutes, timer is in seconds
+        startValue = startValue*60;
+        progressBar->setValue(startValue);
+        timer = new QTimer();
+        QObject::connect(timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
+        timer->start(1000);
+    }else{
+        start_button->setChecked(true);
+    }
 
 }
 
@@ -150,6 +162,7 @@ void MainWindow::onTimeout(){
           display = mstring + ":" + sstring;
         }
         label->setText(display);
+        ui->statusBar->showMessage(display);
         value--;
         progressBar->setValue(value);
     }
@@ -193,4 +206,15 @@ void MainWindow::on_actionView_Bookmarks_triggered(){
     current->setHtml(html);
     ui->urlEdit->setText("");
     ui->tabWidget->setTabText(ui->tabWidget->currentIndex(), "Bookmarks");
+}
+
+void MainWindow::on_actionShow_Timer_2_triggered(){
+    layout->removeWidget(lineEdit);
+    delete lineEdit;
+    wrapper->setLayout(layout);
+    wrapper->show();
+}
+
+void MainWindow::on_actionHide_Timer_triggered(){
+    wrapper->hide();
 }
