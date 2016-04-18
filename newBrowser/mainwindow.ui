@@ -126,7 +126,15 @@ width: 90px;</string>
     <property name="title">
      <string>Timer</string>
     </property>
+    <widget class="QMenu" name="menuCurrent_Timer">
+     <property name="title">
+      <string>Current Timer</string>
+     </property>
+     <addaction name="actionShow_Timer_2"/>
+     <addaction name="actionHide_Timer"/>
+    </widget>
     <addaction name="actionNew_Timer"/>
+    <addaction name="menuCurrent_Timer"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
@@ -197,6 +205,16 @@ width: 90px;</string>
   <action name="actionNew_Timer">
    <property name="text">
     <string>New Timer</string>
+   </property>
+  </action>
+  <action name="actionShow_Timer_2">
+   <property name="text">
+    <string>Show</string>
+   </property>
+  </action>
+  <action name="actionHide_Timer">
+   <property name="text">
+    <string>Hide</string>
    </property>
   </action>
  </widget>
