@@ -225,3 +225,14 @@ void MainWindow::on_actionShow_Timer_2_triggered(){
 void MainWindow::on_actionHide_Timer_triggered(){
     wrapper->hide();
 }
+
+// Indicate that a search is being made
+void MainWindow::on_google_returnPressed(){
+    on_googleButton_clicked();
+}
+
+// Load the page for the search bar
+void MainWindow::on_googleButton_clicked() {
+    current->load(QUrl(QString("http://www.google.com/?q=")+(ui->google->text())));
+}
+

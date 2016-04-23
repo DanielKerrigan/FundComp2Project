@@ -42,22 +42,16 @@ private slots:
     void tabSelected();
     void onTimeout();
     void onClicked();
-
     void on_actionNew_Timer_triggered();
-
     void on_actionAdd_Bookmark_triggered();
-
     void on_actionBlock_site_triggered();
-
     void on_actionView_History_triggered();
-
     void on_actionView_Blocked_triggered();
-
     void on_actionView_Bookmarks_triggered();
-
     void on_actionShow_Timer_2_triggered();
-
     void on_actionHide_Timer_triggered();
+    void on_googleButton_clicked();
+    void on_google_returnPressed();
 
 private:
     Ui::MainWindow *ui;
