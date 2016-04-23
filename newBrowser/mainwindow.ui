@@ -6,23 +6,32 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1393</width>
-    <height>869</height>
+    <width>1384</width>
+    <height>834</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout_3">
-    <item row="0" column="7">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="6">
      <widget class="QPushButton" name="googleButton">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/Images/googLogo.png);</string>
+      </property>
       <property name="text">
-       <string>Google</string>
+       <string/>
       </property>
      </widget>
     </item>
-    <item row="1" column="0" colspan="6">
+    <item row="1" column="0" colspan="7">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
        <number>0</number>
@@ -34,29 +43,14 @@
       </widget>
      </widget>
     </item>
-    <item row="0" column="6">
-     <widget class="QLineEdit" name="google">
+    <item row="0" column="0">
+     <widget class="QPushButton" name="backButton">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
-     </widget>
-    </item>
-    <item row="0" column="5">
-     <widget class="QPushButton" name="refreshButton">
-      <property name="styleSheet">
-       <string notr="true">background-image: url(:/Images/refresh.jpg);
-width: 30px;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QPushButton" name="backButton">
       <property name="styleSheet">
        <string notr="true">background-image: url(:/Images/back.jpg);
 width: 90px;</string>
@@ -66,19 +60,14 @@ width: 90px;</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="3">
-     <widget class="QPushButton" name="goButton">
-      <property name="styleSheet">
-       <string notr="true">background-image: url(:/Images/go.jpg);
-width: 90px;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="1">
      <widget class="QPushButton" name="forwardButton">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="styleSheet">
        <string notr="true">background-image: url(:/Images/forward.jpg);
 width: 90px;</string>
@@ -91,6 +80,45 @@ width: 90px;</string>
     <item row="0" column="2">
      <widget class="QLineEdit" name="urlEdit"/>
     </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="goButton">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/Images/go.jpg);
+width: 90px
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="QPushButton" name="refreshButton">
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/Images/refresh.jpg);
+width: 30px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QLineEdit" name="google">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -98,7 +126,7 @@ width: 90px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1393</width>
+     <width>1384</width>
      <height>31</height>
     </rect>
    </property>

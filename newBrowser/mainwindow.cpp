@@ -235,4 +235,3 @@ void MainWindow::on_google_returnPressed(){
 void MainWindow::on_googleButton_clicked() {
     current->load(QUrl(QString("http://www.google.com/#q=")+(ui->google->text())));
 }
-

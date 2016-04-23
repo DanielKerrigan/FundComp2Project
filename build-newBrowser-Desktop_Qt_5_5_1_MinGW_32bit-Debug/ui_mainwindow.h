@@ -46,16 +46,16 @@ public:
     QAction *actionShow_Timer_2;
     QAction *actionHide_Timer;
     QWidget *centralWidget;
-    QGridLayout *gridLayout_3;
+    QGridLayout *gridLayout;
     QPushButton *googleButton;
     QTabWidget *tabWidget;
     QWidget *tab_11;
-    QLineEdit *google;
-    QPushButton *refreshButton;
     QPushButton *backButton;
-    QPushButton *goButton;
     QPushButton *forwardButton;
     QLineEdit *urlEdit;
+    QPushButton *goButton;
+    QPushButton *refreshButton;
+    QLineEdit *google;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuEdit;
@@ -71,7 +71,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(1393, 869);
+        MainWindow->resize(1384, 834);
         actionBack = new QAction(MainWindow);
         actionBack->setObjectName(QStringLiteral("actionBack"));
         actionForward = new QAction(MainWindow);
@@ -104,14 +104,20 @@ public:
         actionHide_Timer->setObjectName(QStringLiteral("actionHide_Timer"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        gridLayout_3 = new QGridLayout(centralWidget);
-        gridLayout_3->setSpacing(6);
-        gridLayout_3->setContentsMargins(11, 11, 11, 11);
-        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        gridLayout = new QGridLayout(centralWidget);
+        gridLayout->setSpacing(6);
+        gridLayout->setContentsMargins(11, 11, 11, 11);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
         googleButton = new QPushButton(centralWidget);
         googleButton->setObjectName(QStringLiteral("googleButton"));
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(googleButton->sizePolicy().hasHeightForWidth());
+        googleButton->setSizePolicy(sizePolicy);
+        googleButton->setStyleSheet(QStringLiteral("border-image: url(:/Images/googLogo.png);"));
 
-        gridLayout_3->addWidget(googleButton, 0, 7, 1, 1);
+        gridLayout->addWidget(googleButton, 0, 6, 1, 1);
 
         tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
@@ -119,55 +125,62 @@ public:
         tab_11->setObjectName(QStringLiteral("tab_11"));
         tabWidget->addTab(tab_11, QString());
 
-        gridLayout_3->addWidget(tabWidget, 1, 0, 1, 6);
+        gridLayout->addWidget(tabWidget, 1, 0, 1, 7);
 
-        google = new QLineEdit(centralWidget);
-        google->setObjectName(QStringLiteral("google"));
-        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(google->sizePolicy().hasHeightForWidth());
-        google->setSizePolicy(sizePolicy);
+        backButton = new QPushButton(centralWidget);
+        backButton->setObjectName(QStringLiteral("backButton"));
+        sizePolicy.setHeightForWidth(backButton->sizePolicy().hasHeightForWidth());
+        backButton->setSizePolicy(sizePolicy);
+        backButton->setStyleSheet(QLatin1String("background-image: url(:/Images/back.jpg);\n"
+"width: 90px;"));
 
-        gridLayout_3->addWidget(google, 0, 6, 1, 1);
+        gridLayout->addWidget(backButton, 0, 0, 1, 1);
+
+        forwardButton = new QPushButton(centralWidget);
+        forwardButton->setObjectName(QStringLiteral("forwardButton"));
+        sizePolicy.setHeightForWidth(forwardButton->sizePolicy().hasHeightForWidth());
+        forwardButton->setSizePolicy(sizePolicy);
+        forwardButton->setStyleSheet(QLatin1String("background-image: url(:/Images/forward.jpg);\n"
+"width: 90px;"));
+
+        gridLayout->addWidget(forwardButton, 0, 1, 1, 1);
+
+        urlEdit = new QLineEdit(centralWidget);
+        urlEdit->setObjectName(QStringLiteral("urlEdit"));
+
+        gridLayout->addWidget(urlEdit, 0, 2, 1, 1);
+
+        goButton = new QPushButton(centralWidget);
+        goButton->setObjectName(QStringLiteral("goButton"));
+        sizePolicy.setHeightForWidth(goButton->sizePolicy().hasHeightForWidth());
+        goButton->setSizePolicy(sizePolicy);
+        goButton->setStyleSheet(QLatin1String("background-image: url(:/Images/go.jpg);\n"
+"width: 90px\n"
+""));
+
+        gridLayout->addWidget(goButton, 0, 3, 1, 1);
 
         refreshButton = new QPushButton(centralWidget);
         refreshButton->setObjectName(QStringLiteral("refreshButton"));
         refreshButton->setStyleSheet(QLatin1String("background-image: url(:/Images/refresh.jpg);\n"
 "width: 30px;"));
 
-        gridLayout_3->addWidget(refreshButton, 0, 5, 1, 1);
+        gridLayout->addWidget(refreshButton, 0, 4, 1, 1);
 
-        backButton = new QPushButton(centralWidget);
-        backButton->setObjectName(QStringLiteral("backButton"));
-        backButton->setStyleSheet(QLatin1String("background-image: url(:/Images/back.jpg);\n"
-"width: 90px;"));
+        google = new QLineEdit(centralWidget);
+        google->setObjectName(QStringLiteral("google"));
+        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(google->sizePolicy().hasHeightForWidth());
+        google->setSizePolicy(sizePolicy1);
 
-        gridLayout_3->addWidget(backButton, 0, 0, 1, 1);
-
-        goButton = new QPushButton(centralWidget);
-        goButton->setObjectName(QStringLiteral("goButton"));
-        goButton->setStyleSheet(QLatin1String("background-image: url(:/Images/go.jpg);\n"
-"width: 90px;"));
-
-        gridLayout_3->addWidget(goButton, 0, 3, 1, 1);
-
-        forwardButton = new QPushButton(centralWidget);
-        forwardButton->setObjectName(QStringLiteral("forwardButton"));
-        forwardButton->setStyleSheet(QLatin1String("background-image: url(:/Images/forward.jpg);\n"
-"width: 90px;"));
-
-        gridLayout_3->addWidget(forwardButton, 0, 1, 1, 1);
-
-        urlEdit = new QLineEdit(centralWidget);
-        urlEdit->setObjectName(QStringLiteral("urlEdit"));
-
-        gridLayout_3->addWidget(urlEdit, 0, 2, 1, 1);
+        gridLayout->addWidget(google, 0, 5, 1, 1);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1393, 31));
+        menuBar->setGeometry(QRect(0, 0, 1384, 31));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
         menuEdit = new QMenu(menuBar);
@@ -240,12 +253,12 @@ public:
         actionView_Blocked->setText(QApplication::translate("MainWindow", "View Blocked", 0));
         actionShow_Timer_2->setText(QApplication::translate("MainWindow", "Show", 0));
         actionHide_Timer->setText(QApplication::translate("MainWindow", "Hide", 0));
-        googleButton->setText(QApplication::translate("MainWindow", "Google", 0));
+        googleButton->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_11), QApplication::translate("MainWindow", "Tab 1", 0));
-        refreshButton->setText(QString());
         backButton->setText(QString());
-        goButton->setText(QString());
         forwardButton->setText(QString());
+        goButton->setText(QString());
+        refreshButton->setText(QString());
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
         menuEdit->setTitle(QApplication::translate("MainWindow", "Edit", 0));
         menuHistory->setTitle(QApplication::translate("MainWindow", "History", 0));
