@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QWebView>
+#include <QWebHistory>
 #include <QApplication>
 #include <QVBoxLayout>
 #include <QTimer>
@@ -53,6 +54,10 @@ private slots:
     void on_actionHide_Timer_triggered();
     void on_googleButton_clicked();
     void on_google_returnPressed();
+
+    void on_actionRemove_Bookmark_triggered();
+
+    void on_actionRemove_Blocked_triggered();
 
 private:
     Ui::MainWindow *ui;
