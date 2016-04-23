@@ -47,7 +47,7 @@ void MainWindow::on_refreshButton_clicked(){
 void MainWindow::on_urlEdit_returnPressed(){
     on_goButton_clicked();
 }
-// Updat the text in the URL Edit Box to match the true URL
+// Update the text in the URL Edit Box to match the true URL
 void MainWindow::updateUrlBox(){
     QUrl qurl = current->url();
     QString qurlStr = qurl.toString();
@@ -61,8 +61,7 @@ void MainWindow::updateUrlBox(){
     } else {  // website is blocked
         // load html for blocked page
         QString html = QString("<html><body><h1>%1 is blocked!</h1><img src='qrc:/Images/emrich.png'></body></html>").arg(qurl.host());
-        current->setHtml(html);
-        ui->tabWidget->setTabText(ui->tabWidget->currentIndex(), "Emrich says no!");
+        setHTML(html, "Emrich says no!", "");
     }
 }
 
@@ -179,44 +178,27 @@ void MainWindow::onTimeout(){
     }
 }
 
-// Show history, blocked, and bookmarks in a html page
-// maybe try to reduce duplication in the future.
-// maybe make one function that iterates over a a given container forms the html, etc.
+// change the html, tab label, and text in the url edit box
+void MainWindow::setHTML(QString html, QString tabName, QString urlBox){
+    current->setHtml(html);
+    ui->urlEdit->setText(urlBox);
+    ui->tabWidget->setTabText(ui->tabWidget->currentIndex(), tabName);
+}
+
+// Show history links in an html page
 void MainWindow::on_actionView_History_triggered(){
-    QString html = QString("<html><body><h1>History</h1>");
-    std::vector<QString> hist = urls.getHistory();
-    for(int i = hist.size()-1; i >= 0; i--){
-        html += QString("<a href='%1'>%1</a><br>").arg(hist[i]);
-    }
-    html += QString("</body></html>");
-    current->setHtml(html);
-    ui->urlEdit->setText("");
-    ui->tabWidget->setTabText(ui->tabWidget->currentIndex(), "History");
+    QString html = urls.getHistoryHTML();
+    setHTML(html, "History", "");
 }
-
+// Show blocked links in an html page
 void MainWindow::on_actionView_Blocked_triggered(){
-    QString html = QString("<html><body><h1>Blocked</h1>");
-    std::set<QString> blocked = urls.getBlocked();
-    std::set<QString>::iterator it;
-    for (it = blocked.begin(); it != blocked.end(); ++it){
-        html += QString("<a href='%1'>%1</a><br>").arg(*it);
-    }
-    html += QString("</body></html>");
-    current->setHtml(html);
-    ui->urlEdit->setText("");
-    ui->tabWidget->setTabText(ui->tabWidget->currentIndex(), "Blocked");
+    QString html = urls.getBlockedHTML();
+    setHTML(html, "Blocked", "");
 }
-
+// Show bookmark links in an html page
 void MainWindow::on_actionView_Bookmarks_triggered(){
-    QString html = QString("<html><body><h1>Bookmarks</h1>");
-    std::vector<QString> bookmarks = urls.getBookmarks();
-    for(int i = bookmarks.size()-1; i >= 0; i--){
-        html += QString("<a href='%1'>%1</a><br>").arg(bookmarks[i]);
-    }
-    html += QString("</body></html>");
-    current->setHtml(html);
-    ui->urlEdit->setText("");
-    ui->tabWidget->setTabText(ui->tabWidget->currentIndex(), "Bookmarks");
+    QString html = urls.getBookmarksHTML();
+    setHTML(html, "Bookmarks", "");
 }
 
 void MainWindow::on_actionShow_Timer_2_triggered(){

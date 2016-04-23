@@ -29,7 +29,6 @@ url_collections::url_collections(){
 // for now, I am overwriting each file, rather than keeping track
 // of what was added/removed in the current session
 // this is easier, but more wasteful
-// maybe remove the duplication in the future
 url_collections::~url_collections(){
     // erase history.txt and write contents of history
     QFile history_file("history.txt");
@@ -58,18 +57,6 @@ url_collections::~url_collections(){
     }
 }
 
-std::vector<QString> url_collections::getHistory(){
-    return history;
-}
-
-std::set<QString> url_collections::getBlocked(){
-    return blocked;
-}
-
-std::vector<QString> url_collections::getBookmarks(){
-    return bookmarks;
-}
-
 void url_collections::addToHistory(QString url){
     history.push_back(url);
 }
@@ -84,4 +71,35 @@ void url_collections::addToBookmarks(QString url){
 // returns true if url is in blocked
 bool url_collections::is_blocked(QString urlHost){
     return (blocked.find(urlHost) != blocked.end());
+}
+
+// Return HTML for a page that lists the history urls
+QString url_collections::getHistoryHTML(){
+    QString html = QString("<html><body><h1>History</h1>");
+    std::vector<QString>::reverse_iterator it;
+    for(it = history.rbegin(); it != history.rend(); ++it){
+        html += QString("<a href='%1'>%1</a><br>").arg(*it);
+    }
+    html += QString("</body></html>");
+    return html;
+}
+// Return HTML for a page that lists the blocked urls
+QString url_collections::getBlockedHTML(){
+    QString html = QString("<html><body><h1>Blocked</h1>");
+    std::set<QString>::iterator it;
+    for(it = blocked.begin(); it != blocked.end(); ++it){
+        html += QString("<a href='http://%1'>%1</a><br>").arg(*it);
+    }
+    html += QString("</body></html>");
+    return html;
+}
+// Return HTML for a page that lists the bookmark urls
+QString url_collections::getBookmarksHTML(){
+    QString html = QString("<html><body><h1>Bookmarks</h1>");
+    std::vector<QString>::reverse_iterator it;
+    for(it = bookmarks.rbegin(); it != bookmarks.rend(); ++it){
+        html += QString("<a href='%1'>%1</a><br>").arg(*it);
+    }
+    html += QString("</body></html>");
+    return html;
 }
