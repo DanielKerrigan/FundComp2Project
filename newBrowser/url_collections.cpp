@@ -103,3 +103,24 @@ QString url_collections::getBookmarksHTML(){
     html += QString("</body></html>");
     return html;
 }
+
+void url_collections::removeFromHistory(QString url){
+    std::vector<QString>::iterator it = std::find(history.begin(), history.end(), url);
+    if(it != history.end()){
+        history.erase(it);
+    }
+}
+
+void url_collections::removeFromBookmarks(QString url){
+    std::vector<QString>::iterator it = std::find(bookmarks.begin(), bookmarks.end(), url);
+    if(it != bookmarks.end()){
+        bookmarks.erase(it);
+    }
+}
+
+void url_collections::removeFromBlocked(QString url){
+    std::set<QString>::iterator it = blocked.find(url);
+    if(it != blocked.end()){
+        blocked.erase(it);
+    }
+}

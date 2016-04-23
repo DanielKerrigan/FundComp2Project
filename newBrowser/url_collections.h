@@ -19,6 +19,9 @@ public:
     void addToHistory(QString);
     void addToBlocked(QString);
     void addToBookmarks(QString);
+    void removeFromHistory(QString);
+    void removeFromBookmarks(QString);
+    void removeFromBlocked(QString);
     bool is_blocked(QString);
     QString getHistoryHTML();
     QString getBlockedHTML();

@@ -134,7 +134,7 @@ width: 30px;</string>
      <x>0</x>
      <y>0</y>
      <width>1384</width>
-     <height>31</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -168,6 +168,7 @@ width: 30px;</string>
      <string>Bookmarks</string>
     </property>
     <addaction name="actionAdd_Bookmark"/>
+    <addaction name="actionRemove_Bookmark"/>
     <addaction name="actionView_Bookmarks"/>
    </widget>
    <widget class="QMenu" name="menuBlocked">
@@ -175,6 +176,7 @@ width: 30px;</string>
      <string>Blocked</string>
     </property>
     <addaction name="actionBlock_site"/>
+    <addaction name="actionRemove_Blocked"/>
     <addaction name="actionView_Blocked"/>
    </widget>
    <widget class="QMenu" name="menuTimer">
@@ -264,7 +266,7 @@ width: 30px;</string>
   </action>
   <action name="actionBlock_site">
    <property name="text">
-    <string>Block site</string>
+    <string>Block Site</string>
    </property>
   </action>
   <action name="actionView_History">
@@ -295,6 +297,26 @@ width: 30px;</string>
   <action name="actionHide_Timer">
    <property name="text">
     <string>Hide</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="text">
+    <string>Copy</string>
+   </property>
+  </action>
+  <action name="actionCut">
+   <property name="text">
+    <string>Cut</string>
+   </property>
+  </action>
+  <action name="actionRemove_Bookmark">
+   <property name="text">
+    <string>Remove Bookmark</string>
+   </property>
+  </action>
+  <action name="actionRemove_Blocked">
+   <property name="text">
+    <string>Unblock Site</string>
    </property>
   </action>
   <action name="actionClose_Tab">

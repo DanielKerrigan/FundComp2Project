@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QWebView>
+#include <QWebHistory>
 #include <QApplication>
 #include <QVBoxLayout>
 #include <QTimer>
@@ -43,6 +44,7 @@ private slots:
     void onClicked();
     void on_googleButton_clicked();
     void on_google_returnPressed();
+    
     // Menus
         // File
         void on_actionNew_Tab_triggered();
@@ -63,8 +65,10 @@ private slots:
         void on_actionShow_Timer_2_triggered();
         void on_actionHide_Timer_triggered();
 
-    void on_actionClose_Tab_triggered();
+    void on_actionRemove_Bookmark_triggered();
+    void on_actionRemove_Blocked_triggered();
 
+    void on_actionClose_Tab_triggered();
     void on_actionClose_Window_triggered();
 
 private:

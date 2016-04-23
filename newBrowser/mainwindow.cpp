@@ -62,8 +62,8 @@ void MainWindow::updateUrlBox(){
         }
     } else {  // website is blocked
         // load html for blocked page
-        QString html = QString("<html><body><h1 style='text-align:center;'>%1 is blocked!</h1><img src='qrc:/Images/emrich.png'></body></html>").arg(qurl.host());
-        setHTML(html, "Emrich says no!", "");
+        QString html = QString("<html><body><h1>%1 is blocked!</h1><img src='qrc:/Images/emrich.png'></body></html>").arg(qurl.host());
+        setHTML(html, "Emrich says no!", qurl.host());
     }
 }
 
@@ -229,6 +229,15 @@ void MainWindow::on_google_returnPressed(){
 void MainWindow::on_googleButton_clicked() {
     current->load(QUrl(QString("http://www.google.com/#q=")+(ui->google->text())));
 }
+
+void MainWindow::on_actionRemove_Bookmark_triggered(){
+    urls.removeFromBookmarks(current->url().toString());
+}
+
+void MainWindow::on_actionRemove_Blocked_triggered(){
+    //QString urlHost = current->history()->currentItem().url().host();
+    QString urlHost = ui->urlEdit->text();
+    urls.removeFromBlocked(urlHost);
 
 void MainWindow::on_actionClose_Tab_triggered(){
     int currentTabIndex = ui->tabWidget->currentIndex();
