@@ -16,6 +16,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(current, SIGNAL(urlChanged(const QUrl &)), this, SLOT(updateUrlBox()));
     // when a tab is cicked
     connect(ui->tabWidget, SIGNAL(currentChanged(int)), this, SLOT(tabSelected()));
+    // set the index of the tab
+     ui->tabWidget->setCurrentIndex(0);
 }
 
 MainWindow::~MainWindow(){
@@ -232,4 +234,17 @@ void MainWindow::on_actionRemove_Blocked_triggered(){
     //QString urlHost = current->history()->currentItem().url().host();
     QString urlHost = ui->urlEdit->text();
     urls.removeFromBlocked(urlHost);
+
+void MainWindow::on_actionClose_Tab_triggered(){
+    int currentTabIndex = ui->tabWidget->currentIndex();
+    if (currentTabIndex != 0){
+        ui->tabWidget->removeTab(currentTabIndex);
+    }
+    else {
+        exit(0);
+    }
+}
+
+void MainWindow::on_actionClose_Window_triggered(){
+    exit(0);
 }

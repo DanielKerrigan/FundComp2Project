@@ -24,7 +24,8 @@
        </sizepolicy>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:/Images/googLogo.png);</string>
+       <string notr="true">background-image: url(:/Images/googLogo.png);
+width: 26px</string>
       </property>
       <property name="text">
        <string/>
@@ -118,7 +119,7 @@ width: 30px;</string>
     <item row="0" column="5">
      <widget class="QLineEdit" name="google">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -142,6 +143,8 @@ width: 30px;</string>
     </property>
     <addaction name="actionNew_Tab"/>
     <addaction name="actionNew_Window"/>
+    <addaction name="actionClose_Tab"/>
+    <addaction name="actionClose_Window"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
@@ -289,6 +292,16 @@ width: 30px;</string>
   <action name="actionRemove_Blocked">
    <property name="text">
     <string>Unblock Site</string>
+   </property>
+  </action>
+  <action name="actionClose_Tab">
+   <property name="text">
+    <string>Close Tab</string>
+   </property>
+  </action>
+  <action name="actionClose_Window">
+   <property name="text">
+    <string>Close Window</string>
    </property>
   </action>
  </widget>

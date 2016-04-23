@@ -54,10 +54,10 @@ private slots:
     void on_actionHide_Timer_triggered();
     void on_googleButton_clicked();
     void on_google_returnPressed();
-
     void on_actionRemove_Bookmark_triggered();
-
     void on_actionRemove_Blocked_triggered();
+    void on_actionClose_Tab_triggered();
+    void on_actionClose_Window_triggered();
 
 private:
     Ui::MainWindow *ui;
