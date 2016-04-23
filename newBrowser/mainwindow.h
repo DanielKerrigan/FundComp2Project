@@ -42,6 +42,7 @@ private slots:
     void tabSelected();
     void onTimeout();
     void onClicked();
+    void setHTML(QString html, QString tabName, QString urlBox);
 
     void on_actionNew_Timer_triggered();
 

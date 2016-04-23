@@ -20,9 +20,9 @@ public:
     void addToBlocked(QString);
     void addToBookmarks(QString);
     bool is_blocked(QString);
-    std::vector<QString> getHistory();
-    std::set<QString> getBlocked();
-    std::vector<QString> getBookmarks();
+    QString getHistoryHTML();
+    QString getBlockedHTML();
+    QString getBookmarksHTML();
 private:
     std::vector<QString> history;
     std::set<QString> blocked;
