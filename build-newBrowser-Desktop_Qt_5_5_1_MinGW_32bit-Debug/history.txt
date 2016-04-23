@@ -40,3 +40,7 @@ http://www.google.com/
 http://www.google.com/
 http://www.google.com/
 http://www.google.com/
+http://www.google.com/
+http://www.google.com/?q=hll
+http://www.google.com/
+http://www.google.com/?q=jj

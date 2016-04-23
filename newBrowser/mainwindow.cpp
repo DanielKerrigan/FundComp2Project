@@ -233,6 +233,6 @@ void MainWindow::on_google_returnPressed(){
 
 // Load the page for the search bar
 void MainWindow::on_googleButton_clicked() {
-    current->load(QUrl(QString("http://www.google.com/?q=")+(ui->google->text())));
+    current->load(QUrl(QString("http://www.google.com/#q=")+(ui->google->text())));
 }
 
