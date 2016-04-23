@@ -234,6 +234,7 @@ void MainWindow::on_actionRemove_Blocked_triggered(){
     //QString urlHost = current->history()->currentItem().url().host();
     QString urlHost = ui->urlEdit->text();
     urls.removeFromBlocked(urlHost);
+}
 
 void MainWindow::on_actionClose_Tab_triggered(){
     int currentTabIndex = ui->tabWidget->currentIndex();
