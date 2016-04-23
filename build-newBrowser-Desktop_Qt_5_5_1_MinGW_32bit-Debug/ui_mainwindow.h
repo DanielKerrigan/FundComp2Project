@@ -162,6 +162,8 @@ public:
 
         refreshButton = new QPushButton(centralWidget);
         refreshButton->setObjectName(QStringLiteral("refreshButton"));
+        sizePolicy.setHeightForWidth(refreshButton->sizePolicy().hasHeightForWidth());
+        refreshButton->setSizePolicy(sizePolicy);
         refreshButton->setStyleSheet(QLatin1String("background-image: url(:/Images/refresh.jpg);\n"
 "width: 30px;"));
 

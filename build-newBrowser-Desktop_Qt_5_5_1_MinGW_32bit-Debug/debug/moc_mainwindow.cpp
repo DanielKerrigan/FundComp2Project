@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[24];
-    char stringdata0[551];
+    QByteArrayData data[28];
+    char stringdata0[579];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -43,16 +43,20 @@ QT_MOC_LITERAL(10, 193, 26), // "on_actionNew_Tab_triggered"
 QT_MOC_LITERAL(11, 220, 11), // "tabSelected"
 QT_MOC_LITERAL(12, 232, 9), // "onTimeout"
 QT_MOC_LITERAL(13, 242, 9), // "onClicked"
-QT_MOC_LITERAL(14, 252, 28), // "on_actionNew_Timer_triggered"
-QT_MOC_LITERAL(15, 281, 31), // "on_actionAdd_Bookmark_triggered"
-QT_MOC_LITERAL(16, 313, 29), // "on_actionBlock_site_triggered"
-QT_MOC_LITERAL(17, 343, 31), // "on_actionView_History_triggered"
-QT_MOC_LITERAL(18, 375, 31), // "on_actionView_Blocked_triggered"
-QT_MOC_LITERAL(19, 407, 33), // "on_actionView_Bookmarks_trigg..."
-QT_MOC_LITERAL(20, 441, 31), // "on_actionShow_Timer_2_triggered"
-QT_MOC_LITERAL(21, 473, 29), // "on_actionHide_Timer_triggered"
-QT_MOC_LITERAL(22, 503, 23), // "on_googleButton_clicked"
-QT_MOC_LITERAL(23, 527, 23) // "on_google_returnPressed"
+QT_MOC_LITERAL(14, 252, 7), // "setHTML"
+QT_MOC_LITERAL(15, 260, 4), // "html"
+QT_MOC_LITERAL(16, 265, 7), // "tabName"
+QT_MOC_LITERAL(17, 273, 6), // "urlBox"
+QT_MOC_LITERAL(18, 280, 28), // "on_actionNew_Timer_triggered"
+QT_MOC_LITERAL(19, 309, 31), // "on_actionAdd_Bookmark_triggered"
+QT_MOC_LITERAL(20, 341, 29), // "on_actionBlock_site_triggered"
+QT_MOC_LITERAL(21, 371, 31), // "on_actionView_History_triggered"
+QT_MOC_LITERAL(22, 403, 31), // "on_actionView_Blocked_triggered"
+QT_MOC_LITERAL(23, 435, 33), // "on_actionView_Bookmarks_trigg..."
+QT_MOC_LITERAL(24, 469, 31), // "on_actionShow_Timer_2_triggered"
+QT_MOC_LITERAL(25, 501, 29), // "on_actionHide_Timer_triggered"
+QT_MOC_LITERAL(26, 531, 23), // "on_googleButton_clicked"
+QT_MOC_LITERAL(27, 555, 23) // "on_google_returnPressed"
 
     },
     "MainWindow\0on_backButton_clicked\0\0"
@@ -62,7 +66,8 @@ QT_MOC_LITERAL(23, 527, 23) // "on_google_returnPressed"
     "on_actionBack_triggered\0"
     "on_actionForward_triggered\0"
     "on_actionNew_Tab_triggered\0tabSelected\0"
-    "onTimeout\0onClicked\0on_actionNew_Timer_triggered\0"
+    "onTimeout\0onClicked\0setHTML\0html\0"
+    "tabName\0urlBox\0on_actionNew_Timer_triggered\0"
     "on_actionAdd_Bookmark_triggered\0"
     "on_actionBlock_site_triggered\0"
     "on_actionView_History_triggered\0"
@@ -80,7 +85,7 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      22,   14, // methods
+      23,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -88,28 +93,29 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,  124,    2, 0x08 /* Private */,
-       3,    0,  125,    2, 0x08 /* Private */,
-       4,    0,  126,    2, 0x08 /* Private */,
-       5,    0,  127,    2, 0x08 /* Private */,
-       6,    0,  128,    2, 0x08 /* Private */,
-       7,    0,  129,    2, 0x08 /* Private */,
-       8,    0,  130,    2, 0x08 /* Private */,
-       9,    0,  131,    2, 0x08 /* Private */,
-      10,    0,  132,    2, 0x08 /* Private */,
-      11,    0,  133,    2, 0x08 /* Private */,
-      12,    0,  134,    2, 0x08 /* Private */,
-      13,    0,  135,    2, 0x08 /* Private */,
-      14,    0,  136,    2, 0x08 /* Private */,
-      15,    0,  137,    2, 0x08 /* Private */,
-      16,    0,  138,    2, 0x08 /* Private */,
-      17,    0,  139,    2, 0x08 /* Private */,
-      18,    0,  140,    2, 0x08 /* Private */,
-      19,    0,  141,    2, 0x08 /* Private */,
-      20,    0,  142,    2, 0x08 /* Private */,
-      21,    0,  143,    2, 0x08 /* Private */,
-      22,    0,  144,    2, 0x08 /* Private */,
-      23,    0,  145,    2, 0x08 /* Private */,
+       1,    0,  129,    2, 0x08 /* Private */,
+       3,    0,  130,    2, 0x08 /* Private */,
+       4,    0,  131,    2, 0x08 /* Private */,
+       5,    0,  132,    2, 0x08 /* Private */,
+       6,    0,  133,    2, 0x08 /* Private */,
+       7,    0,  134,    2, 0x08 /* Private */,
+       8,    0,  135,    2, 0x08 /* Private */,
+       9,    0,  136,    2, 0x08 /* Private */,
+      10,    0,  137,    2, 0x08 /* Private */,
+      11,    0,  138,    2, 0x08 /* Private */,
+      12,    0,  139,    2, 0x08 /* Private */,
+      13,    0,  140,    2, 0x08 /* Private */,
+      14,    3,  141,    2, 0x08 /* Private */,
+      18,    0,  148,    2, 0x08 /* Private */,
+      19,    0,  149,    2, 0x08 /* Private */,
+      20,    0,  150,    2, 0x08 /* Private */,
+      21,    0,  151,    2, 0x08 /* Private */,
+      22,    0,  152,    2, 0x08 /* Private */,
+      23,    0,  153,    2, 0x08 /* Private */,
+      24,    0,  154,    2, 0x08 /* Private */,
+      25,    0,  155,    2, 0x08 /* Private */,
+      26,    0,  156,    2, 0x08 /* Private */,
+      27,    0,  157,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -124,6 +130,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString,   15,   16,   17,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -156,20 +163,20 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 9: _t->tabSelected(); break;
         case 10: _t->onTimeout(); break;
         case 11: _t->onClicked(); break;
-        case 12: _t->on_actionNew_Timer_triggered(); break;
-        case 13: _t->on_actionAdd_Bookmark_triggered(); break;
-        case 14: _t->on_actionBlock_site_triggered(); break;
-        case 15: _t->on_actionView_History_triggered(); break;
-        case 16: _t->on_actionView_Blocked_triggered(); break;
-        case 17: _t->on_actionView_Bookmarks_triggered(); break;
-        case 18: _t->on_actionShow_Timer_2_triggered(); break;
-        case 19: _t->on_actionHide_Timer_triggered(); break;
-        case 20: _t->on_googleButton_clicked(); break;
-        case 21: _t->on_google_returnPressed(); break;
+        case 12: _t->setHTML((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< QString(*)>(_a[3]))); break;
+        case 13: _t->on_actionNew_Timer_triggered(); break;
+        case 14: _t->on_actionAdd_Bookmark_triggered(); break;
+        case 15: _t->on_actionBlock_site_triggered(); break;
+        case 16: _t->on_actionView_History_triggered(); break;
+        case 17: _t->on_actionView_Blocked_triggered(); break;
+        case 18: _t->on_actionView_Bookmarks_triggered(); break;
+        case 19: _t->on_actionShow_Timer_2_triggered(); break;
+        case 20: _t->on_actionHide_Timer_triggered(); break;
+        case 21: _t->on_googleButton_clicked(); break;
+        case 22: _t->on_google_returnPressed(); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObject MainWindow::staticMetaObject = {
@@ -197,13 +204,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 22)
+        if (_id < 23)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 22;
+        _id -= 23;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 22)
+        if (_id < 23)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 22;
+        _id -= 23;
     }
     return _id;
 }

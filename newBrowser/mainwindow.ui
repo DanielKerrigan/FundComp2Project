@@ -100,6 +100,12 @@ width: 90px
     </item>
     <item row="0" column="4">
      <widget class="QPushButton" name="refreshButton">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="styleSheet">
        <string notr="true">background-image: url(:/Images/refresh.jpg);
 width: 30px;</string>
