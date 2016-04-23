@@ -15,7 +15,36 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout_3">
-    <item row="0" column="4">
+    <item row="0" column="7">
+     <widget class="QPushButton" name="googleButton">
+      <property name="text">
+       <string>Google</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="6">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_11">
+       <attribute name="title">
+        <string>Tab 1</string>
+       </attribute>
+      </widget>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <widget class="QLineEdit" name="google">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
      <widget class="QPushButton" name="refreshButton">
       <property name="styleSheet">
        <string notr="true">background-image: url(:/Images/refresh.jpg);
@@ -26,13 +55,10 @@ width: 30px;</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="2">
-     <widget class="QLineEdit" name="urlEdit"/>
-    </item>
-    <item row="0" column="1">
-     <widget class="QPushButton" name="forwardButton">
+    <item row="0" column="0">
+     <widget class="QPushButton" name="backButton">
       <property name="styleSheet">
-       <string notr="true">background-image: url(:/Images/forward.jpg);
+       <string notr="true">background-image: url(:/Images/back.jpg);
 width: 90px;</string>
       </property>
       <property name="text">
@@ -51,10 +77,10 @@ width: 90px;</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="0">
-     <widget class="QPushButton" name="backButton">
+    <item row="0" column="1">
+     <widget class="QPushButton" name="forwardButton">
       <property name="styleSheet">
-       <string notr="true">background-image: url(:/Images/back.jpg);
+       <string notr="true">background-image: url(:/Images/forward.jpg);
 width: 90px;</string>
       </property>
       <property name="text">
@@ -62,18 +88,8 @@ width: 90px;</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="0" colspan="5">
-     <widget class="QTabWidget" name="tabWidget">
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-      <widget class="QWidget" name="tab_11">
-       <attribute name="title">
-        <string>Tab 1</string>
-       </attribute>
-       <layout class="QGridLayout" name="gridLayout"/>
-      </widget>
-     </widget>
+    <item row="0" column="2">
+     <widget class="QLineEdit" name="urlEdit"/>
     </item>
    </layout>
   </widget>
@@ -83,7 +99,7 @@ width: 90px;</string>
      <x>0</x>
      <y>0</y>
      <width>1393</width>
-     <height>22</height>
+     <height>31</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -216,8 +232,8 @@ width: 90px;</string>
   </action>
   <action name="actionView_Blocked">
    <property name="text">
-       <string>View Blocked</string>
-    </property>
+    <string>View Blocked</string>
+   </property>
   </action>
   <action name="actionShow_Timer_2">
    <property name="text">

@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
@@ -31,7 +32,12 @@ void MainWindow::on_forwardButton_clicked(){
 }
 // Load the URL in the URL Edit Box when go is clicked
 void MainWindow::on_goButton_clicked(){
-    current->load(QUrl(ui->urlEdit->text()));
+    QString inputURL = QUrl(ui->urlEdit->text()).toString();
+    if (inputURL.contains("http://") || inputURL.contains("https://")){
+        current->load(inputURL);
+    } else {
+        current->load(inputURL.prepend("http://"));
+    }
 }
 // Reload the page when the refresh button is clicked
 void MainWindow::on_refreshButton_clicked(){
@@ -207,3 +213,14 @@ void MainWindow::on_actionShow_Timer_2_triggered(){
 void MainWindow::on_actionHide_Timer_triggered(){
     wrapper->hide();
 }
+
+// Indicate that a search is being made
+void MainWindow::on_google_returnPressed(){
+    on_googleButton_clicked();
+}
+
+// Load the page for the search bar
+void MainWindow::on_googleButton_clicked() {
+    current->load(QUrl(QString("http://www.google.com/#q=")+(ui->google->text())));
+}
+
