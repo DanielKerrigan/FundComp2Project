@@ -103,3 +103,15 @@ QString url_collections::getBookmarksHTML(){
     html += QString("</body></html>");
     return html;
 }
+
+void url_collections::removeFromHistory(QString){
+
+}
+
+void url_collections::removeFromBookmarks(QString){
+
+}
+
+void url_collections::removeFromBlocked(QString){
+
+}
