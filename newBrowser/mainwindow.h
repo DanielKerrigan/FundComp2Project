@@ -54,6 +54,10 @@ private slots:
     void on_googleButton_clicked();
     void on_google_returnPressed();
 
+    void on_actionClose_Tab_triggered();
+
+    void on_actionClose_Window_triggered();
+
 private:
     Ui::MainWindow *ui;
     QWebView* current;

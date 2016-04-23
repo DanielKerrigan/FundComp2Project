@@ -45,6 +45,8 @@ public:
     QAction *actionView_Blocked;
     QAction *actionShow_Timer_2;
     QAction *actionHide_Timer;
+    QAction *actionClose_Tab;
+    QAction *actionClose_Window;
     QWidget *centralWidget;
     QGridLayout *gridLayout;
     QPushButton *googleButton;
@@ -102,6 +104,10 @@ public:
         actionShow_Timer_2->setObjectName(QStringLiteral("actionShow_Timer_2"));
         actionHide_Timer = new QAction(MainWindow);
         actionHide_Timer->setObjectName(QStringLiteral("actionHide_Timer"));
+        actionClose_Tab = new QAction(MainWindow);
+        actionClose_Tab->setObjectName(QStringLiteral("actionClose_Tab"));
+        actionClose_Window = new QAction(MainWindow);
+        actionClose_Window->setObjectName(QStringLiteral("actionClose_Window"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
@@ -115,7 +121,8 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(googleButton->sizePolicy().hasHeightForWidth());
         googleButton->setSizePolicy(sizePolicy);
-        googleButton->setStyleSheet(QStringLiteral("background-image: url(:/Images/googLogo.png);"));
+        googleButton->setStyleSheet(QLatin1String("background-image: url(:/Images/googLogo.png);\n"
+"width: 26px"));
 
         gridLayout->addWidget(googleButton, 0, 6, 1, 1);
 
@@ -210,6 +217,8 @@ public:
         menuBar->addAction(menuTimer->menuAction());
         menuFile->addAction(actionNew_Tab);
         menuFile->addAction(actionNew_Window);
+        menuFile->addAction(actionClose_Tab);
+        menuFile->addAction(actionClose_Window);
         menuEdit->addAction(actionBack);
         menuEdit->addAction(actionForward);
         menuEdit->addSeparator();
@@ -252,6 +261,8 @@ public:
         actionView_Blocked->setText(QApplication::translate("MainWindow", "View Blocked", 0));
         actionShow_Timer_2->setText(QApplication::translate("MainWindow", "Show", 0));
         actionHide_Timer->setText(QApplication::translate("MainWindow", "Hide", 0));
+        actionClose_Tab->setText(QApplication::translate("MainWindow", "Close Tab", 0));
+        actionClose_Window->setText(QApplication::translate("MainWindow", "Close Window", 0));
         googleButton->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_11), QApplication::translate("MainWindow", "Tab 1", 0));
         backButton->setText(QString());

@@ -16,6 +16,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(current, SIGNAL(urlChanged(const QUrl &)), this, SLOT(updateUrlBox()));
     // when a tab is cicked
     connect(ui->tabWidget, SIGNAL(currentChanged(int)), this, SLOT(tabSelected()));
+    // set the index of the tab
+     ui->tabWidget->setCurrentIndex(0);
 }
 
 MainWindow::~MainWindow(){
@@ -222,4 +224,15 @@ void MainWindow::on_google_returnPressed(){
 // Load the page for the search bar
 void MainWindow::on_googleButton_clicked() {
     current->load(QUrl(QString("http://www.google.com/#q=")+(ui->google->text())));
+}
+
+void MainWindow::on_actionClose_Tab_triggered(){
+    int currentTabIndex = ui->tabWidget->currentIndex();
+    if (currentTabIndex != 0){
+        ui->tabWidget->removeTab(currentTabIndex);
+    }
+}
+
+void MainWindow::on_actionClose_Window_triggered(){
+    exit(0);
 }

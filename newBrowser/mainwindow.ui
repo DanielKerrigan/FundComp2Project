@@ -143,6 +143,8 @@ width: 30px;</string>
     </property>
     <addaction name="actionNew_Tab"/>
     <addaction name="actionNew_Window"/>
+    <addaction name="actionClose_Tab"/>
+    <addaction name="actionClose_Window"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
@@ -278,6 +280,16 @@ width: 30px;</string>
   <action name="actionHide_Timer">
    <property name="text">
     <string>Hide</string>
+   </property>
+  </action>
+  <action name="actionClose_Tab">
+   <property name="text">
+    <string>Close Tab</string>
+   </property>
+  </action>
+  <action name="actionClose_Window">
+   <property name="text">
+    <string>Close Window</string>
    </property>
   </action>
  </widget>
