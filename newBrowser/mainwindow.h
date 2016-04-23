@@ -31,31 +31,43 @@ public:
     ~MainWindow();
 
 private slots:
+    void setHTML(QString html, QString tabName, QString urlBox);
+    // Window Buttons
     void on_backButton_clicked();
     void on_forwardButton_clicked();
     void on_goButton_clicked();
     void on_refreshButton_clicked();
     void on_urlEdit_returnPressed();
     void updateUrlBox();
-    void on_actionBack_triggered();
-    void on_actionForward_triggered();
-    void on_actionNew_Tab_triggered();
     void tabSelected();
     void onTimeout();
     void onClicked();
-    void setHTML(QString html, QString tabName, QString urlBox);
-    void on_actionNew_Timer_triggered();
-    void on_actionAdd_Bookmark_triggered();
-    void on_actionBlock_site_triggered();
-    void on_actionView_History_triggered();
-    void on_actionView_Blocked_triggered();
-    void on_actionView_Bookmarks_triggered();
-    void on_actionShow_Timer_2_triggered();
-    void on_actionHide_Timer_triggered();
     void on_googleButton_clicked();
     void on_google_returnPressed();
+    
+    // Menus
+        // File
+        void on_actionNew_Tab_triggered();
+        void on_actionNew_Window_triggered();
+        // Edit
+        void on_actionBack_triggered();
+        void on_actionForward_triggered();
+        // History
+        void on_actionView_History_triggered();
+        // Bookmarks
+        void on_actionAdd_Bookmark_triggered();
+        void on_actionView_Bookmarks_triggered();
+        // Blocked
+        void on_actionBlock_site_triggered();
+        void on_actionView_Blocked_triggered();
+        // Timer
+        void on_actionNew_Timer_triggered();
+        void on_actionShow_Timer_2_triggered();
+        void on_actionHide_Timer_triggered();
+
     void on_actionRemove_Bookmark_triggered();
     void on_actionRemove_Blocked_triggered();
+
     void on_actionClose_Tab_triggered();
     void on_actionClose_Window_triggered();
 

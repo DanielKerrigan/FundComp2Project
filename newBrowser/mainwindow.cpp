@@ -67,6 +67,10 @@ void MainWindow::updateUrlBox(){
     }
 }
 
+void MainWindow::on_actionNew_Window_triggered(){
+
+}
+
 void MainWindow::on_actionNew_Tab_triggered()
 {
     QWebView *newWebView = new QWebView();
