@@ -231,6 +231,9 @@ void MainWindow::on_actionClose_Tab_triggered(){
     if (currentTabIndex != 0){
         ui->tabWidget->removeTab(currentTabIndex);
     }
+    else {
+        exit(0);
+    }
 }
 
 void MainWindow::on_actionClose_Window_triggered(){
