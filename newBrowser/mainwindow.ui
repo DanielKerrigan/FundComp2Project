@@ -24,7 +24,8 @@
        </sizepolicy>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-image: url(:/Images/googLogo.png);</string>
+       <string notr="true">background-image: url(:/Images/googLogo.png);
+width: 26px</string>
       </property>
       <property name="text">
        <string/>

@@ -115,7 +115,7 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(googleButton->sizePolicy().hasHeightForWidth());
         googleButton->setSizePolicy(sizePolicy);
-        googleButton->setStyleSheet(QStringLiteral("border-image: url(:/Images/googLogo.png);"));
+        googleButton->setStyleSheet(QStringLiteral("background-image: url(:/Images/googLogo.png);"));
 
         gridLayout->addWidget(googleButton, 0, 6, 1, 1);
 
@@ -171,11 +171,8 @@ public:
 
         google = new QLineEdit(centralWidget);
         google->setObjectName(QStringLiteral("google"));
-        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(google->sizePolicy().hasHeightForWidth());
-        google->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(google->sizePolicy().hasHeightForWidth());
+        google->setSizePolicy(sizePolicy);
 
         gridLayout->addWidget(google, 0, 5, 1, 1);
 
