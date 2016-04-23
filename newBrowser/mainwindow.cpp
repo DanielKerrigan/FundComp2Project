@@ -62,9 +62,13 @@ void MainWindow::updateUrlBox(){
         }
     } else {  // website is blocked
         // load html for blocked page
-        QString html = QString("<html><body><h1>%1 is blocked!</h1><img src='qrc:/Images/emrich.png'></body></html>").arg(qurl.host());
+        QString html = QString("<html><body><h1 style='text-align:center;'>%1 is blocked!</h1><img src='qrc:/Images/emrich.png'></body></html>").arg(qurl.host());
         setHTML(html, "Emrich says no!", "");
     }
+}
+
+void MainWindow::on_actionNew_Window_triggered(){
+
 }
 
 void MainWindow::on_actionNew_Tab_triggered()
