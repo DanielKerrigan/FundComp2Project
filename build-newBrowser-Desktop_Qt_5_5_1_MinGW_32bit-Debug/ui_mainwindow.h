@@ -249,11 +249,16 @@ public:
         actionBack->setText(QApplication::translate("MainWindow", "Back", 0));
         actionForward->setText(QApplication::translate("MainWindow", "Forward", 0));
         actionCut->setText(QApplication::translate("MainWindow", "Cut", 0));
+        actionCut->setShortcut(QApplication::translate("MainWindow", "Ctrl+X", 0));
         actionCopy->setText(QApplication::translate("MainWindow", "Copy", 0));
+        actionCopy->setShortcut(QApplication::translate("MainWindow", "Ctrl+C", 0));
         actionPaste->setText(QApplication::translate("MainWindow", "Paste", 0));
+        actionPaste->setShortcut(QApplication::translate("MainWindow", "Ctrl+V", 0));
         actionNew_Tab->setText(QApplication::translate("MainWindow", "New Tab", 0));
+        actionNew_Tab->setShortcut(QApplication::translate("MainWindow", "Ctrl+T", 0));
         actionNew_Window->setText(QApplication::translate("MainWindow", "New Window", 0));
         actionAdd_Bookmark->setText(QApplication::translate("MainWindow", "Add Bookmark", 0));
+        actionAdd_Bookmark->setShortcut(QApplication::translate("MainWindow", "Ctrl+B", 0));
         actionBlock_site->setText(QApplication::translate("MainWindow", "Block site", 0));
         actionView_History->setText(QApplication::translate("MainWindow", "View History", 0));
         actionNew_Timer->setText(QApplication::translate("MainWindow", "New Timer", 0));
@@ -263,6 +268,7 @@ public:
         actionHide_Timer->setText(QApplication::translate("MainWindow", "Hide", 0));
         actionClose_Tab->setText(QApplication::translate("MainWindow", "Close Tab", 0));
         actionClose_Window->setText(QApplication::translate("MainWindow", "Close Window", 0));
+        actionClose_Window->setShortcut(QApplication::translate("MainWindow", "Ctrl+Q", 0));
         googleButton->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_11), QApplication::translate("MainWindow", "Tab 1", 0));
         backButton->setText(QString());

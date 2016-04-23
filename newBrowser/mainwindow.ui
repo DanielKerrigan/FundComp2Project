@@ -219,14 +219,36 @@ width: 30px;</string>
     <string>Forward</string>
    </property>
   </action>
+  <action name="actionCut">
+   <property name="text">
+    <string>Cut</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="text">
+    <string>Copy</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
   <action name="actionPaste">
    <property name="text">
     <string>Paste</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
    </property>
   </action>
   <action name="actionNew_Tab">
    <property name="text">
     <string>New Tab</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
    </property>
   </action>
   <action name="actionNew_Window">
@@ -237,6 +259,9 @@ width: 30px;</string>
   <action name="actionAdd_Bookmark">
    <property name="text">
     <string>Add Bookmark</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
    </property>
   </action>
   <action name="actionBlock_site">
@@ -302,6 +327,9 @@ width: 30px;</string>
   <action name="actionClose_Window">
    <property name="text">
     <string>Close Window</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
    </property>
   </action>
  </widget>
