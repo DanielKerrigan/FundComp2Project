@@ -323,6 +323,9 @@ width: 30px;</string>
    <property name="text">
     <string>Close Tab</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
   </action>
   <action name="actionClose_Window">
    <property name="text">
