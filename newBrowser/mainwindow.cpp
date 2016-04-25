@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
+#include <QFile>
+#include <QTextStream>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
@@ -62,8 +64,12 @@ void MainWindow::updateUrlBox(){
         }
     } else {  // website is blocked
         // load html for blocked page
-        QString html = QString("<html><body><h1>%1 is blocked!</h1><img src='qrc:/Images/emrich.png'></body></html>").arg(qurl.host());
-        setHTML(html, "Emrich says no!", qurl.host());
+        //QString html = QString("<html><body><h1>%1 is blocked!</h1><img src='qrc:/Images/emrich.png'></body></html>").arg(qurl.host());
+        QFile file(":/HTML/index.html");
+        if (!file.open(QIODevice::ReadOnly))
+            qDebug() << "Couldn't open file";
+        QTextStream in(&file);
+        setHTML(QString(in.readAll()).arg(qurl.host()), "Emrich says no!", qurl.host());
     }
 }
 

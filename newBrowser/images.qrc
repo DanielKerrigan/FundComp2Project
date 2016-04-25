@@ -8,4 +8,7 @@
         <file>refresh.jpg</file>
         <file>googLogo.png</file>
     </qresource>
+    <qresource prefix="/HTML">
+        <file>index.html</file>
+    </qresource>
 </RCC>
