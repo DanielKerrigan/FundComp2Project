@@ -75,32 +75,29 @@ bool url_collections::is_blocked(QString urlHost){
 
 // Return HTML for a page that lists the history urls
 QString url_collections::getHistoryHTML(){
-    QString html = QString("<html><body><h1>History</h1>");
+    QString html = QString("");
     std::vector<QString>::reverse_iterator it;
     for(it = history.rbegin(); it != history.rend(); ++it){
-        html += QString("<a href='%1'>%1</a><br>").arg(*it);
+        html += QString("<tr><td><a href='%1'>%1</a></td></tr>").arg(*it);
     }
-    html += QString("</body></html>");
     return html;
 }
 // Return HTML for a page that lists the blocked urls
 QString url_collections::getBlockedHTML(){
-    QString html = QString("<html><body><h1>Blocked</h1>");
+    QString html = QString("");
     std::set<QString>::iterator it;
     for(it = blocked.begin(); it != blocked.end(); ++it){
-        html += QString("<a href='http://%1'>%1</a><br>").arg(*it);
+        html += QString("<tr><td><a href='%1'>%1</a></td></tr>").arg(*it);
     }
-    html += QString("</body></html>");
     return html;
 }
 // Return HTML for a page that lists the bookmark urls
 QString url_collections::getBookmarksHTML(){
-    QString html = QString("<html><body><h1>Bookmarks</h1>");
+    QString html = QString("");
     std::vector<QString>::reverse_iterator it;
     for(it = bookmarks.rbegin(); it != bookmarks.rend(); ++it){
-        html += QString("<a href='%1'>%1</a><br>").arg(*it);
+        html += QString("<tr><td><a href='%1'>%1</a></td></tr>").arg(*it);
     }
-    html += QString("</body></html>");
     return html;
 }
 

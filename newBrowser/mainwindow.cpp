@@ -64,12 +64,15 @@ void MainWindow::updateUrlBox(){
         }
     } else {  // website is blocked
         // load html for blocked page
-        //QString html = QString("<html><body><h1>%1 is blocked!</h1><img src='qrc:/Images/emrich.png'></body></html>").arg(qurl.host());
-        QFile file(":/HTML/index.html");
+        QFile file(":/HTML/blocked.html");
         if (!file.open(QIODevice::ReadOnly))
             qDebug() << "Couldn't open file";
         QTextStream in(&file);
-        setHTML(QString(in.readAll()).arg(qurl.host()), "Emrich says no!", qurl.host());
+        // history_string is rows of history items in html
+        QString blocked_string = urls.getBlockedHTML();
+        // replace %1 and %2 in html with website currently visiting and table
+        QString html = QString(in.readAll()).arg(qurl.host(), blocked_string);
+        setHTML(html, "Emrich says no!", qurl.host());
     }
 }
 
@@ -200,18 +203,43 @@ void MainWindow::setHTML(QString html, QString tabName, QString urlBox){
 }
 
 // Show history links in an html page
-void MainWindow::on_actionView_History_triggered(){
-    QString html = urls.getHistoryHTML();
+void MainWindow::on_actionView_History_triggered(){    
+    // load html for history page
+    QFile file(":/HTML/history.html");
+    if (!file.open(QIODevice::ReadOnly))
+        qDebug() << "Couldn't open file";
+    QTextStream in(&file);
+    // history_string is rows of history items in html
+    QString history_string = urls.getHistoryHTML();
+    // replace %1 in html with table
+    QString html = QString(in.readAll()).arg(history_string);
     setHTML(html, "History", "");
+
 }
 // Show blocked links in an html page
-void MainWindow::on_actionView_Blocked_triggered(){
-    QString html = urls.getBlockedHTML();
-    setHTML(html, "Blocked", "");
+void MainWindow::on_actionView_Blocked_triggered(){    
+    // load html for allblocked page (doesn't say that current page is necessarily blocked)
+    QFile file(":/HTML/allblocked.html");
+    if (!file.open(QIODevice::ReadOnly))
+        qDebug() << "Couldn't open file";
+    QTextStream in(&file);
+    // blocked_string is rows of history items in html
+    QString blocked_string = urls.getBlockedHTML();
+    // replace %1 in html with table
+    QString html = QString(in.readAll()).arg(blocked_string);
+    setHTML(html, "Blocked Pages", "");
 }
 // Show bookmark links in an html page
 void MainWindow::on_actionView_Bookmarks_triggered(){
-    QString html = urls.getBookmarksHTML();
+    // load html for bookmarks page
+    QFile file(":/HTML/bookmarks.html");
+    if (!file.open(QIODevice::ReadOnly))
+        qDebug() << "Couldn't open file";
+    QTextStream in(&file);
+    // bookmarks_string is rows of history items in html
+    QString bookmarks_string = urls.getBookmarksHTML();
+    // replace %1 in html with table
+    QString html = QString(in.readAll()).arg(bookmarks_string);
     setHTML(html, "Bookmarks", "");
 }
 

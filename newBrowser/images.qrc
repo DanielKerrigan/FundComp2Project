@@ -9,6 +9,9 @@
         <file>googLogo.png</file>
     </qresource>
     <qresource prefix="/HTML">
-        <file>index.html</file>
+        <file>blocked.html</file>
+        <file>history.html</file>
+        <file>bookmarks.html</file>
+        <file>allblocked.html</file>
     </qresource>
 </RCC>
