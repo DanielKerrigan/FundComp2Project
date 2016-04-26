@@ -71,6 +71,10 @@ private slots:
     void on_actionClose_Tab_triggered();
     void on_actionClose_Window_triggered();
 
+    void on_closeTab_pressed();
+
+    void on_newTab_pressed();
+
 private:
     Ui::MainWindow *ui;
     QWebView* current;
@@ -84,6 +88,7 @@ private:
     QHBoxLayout *hlayout1;
     QWidget *wrapper;
     QLabel *input_label;
+    int currentNumOfTabs;
 };
 
 #endif // MAINWINDOW_H

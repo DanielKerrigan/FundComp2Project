@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->tabWidget, SIGNAL(currentChanged(int)), this, SLOT(tabSelected()));
     // set the index of the tab
      ui->tabWidget->setCurrentIndex(0);
+     currentNumOfTabs = 0;
 }
 
 MainWindow::~MainWindow(){
@@ -76,6 +77,7 @@ void MainWindow::on_actionNew_Tab_triggered()
     QWebView *newWebView = new QWebView();
     newWebView->setUrl(QUrl("http://www.google.com"));
     ui->tabWidget->addTab(newWebView, newWebView->url().host());
+    currentNumOfTabs++;
 }
 
 void MainWindow::on_actionBack_triggered(){
@@ -238,17 +240,31 @@ void MainWindow::on_actionRemove_Blocked_triggered(){
     //QString urlHost = current->history()->currentItem().url().host();
     QString urlHost = ui->urlEdit->text();
     urls.removeFromBlocked(urlHost);
+}
 
 void MainWindow::on_actionClose_Tab_triggered(){
+    currentNumOfTabs--;
     int currentTabIndex = ui->tabWidget->currentIndex();
     if (currentTabIndex != 0){
         ui->tabWidget->removeTab(currentTabIndex);
     }
     else {
-        exit(0);
+        if (currentNumOfTabs == 1){
+            exit(0);
+        }
     }
 }
 
 void MainWindow::on_actionClose_Window_triggered(){
     exit(0);
 }
+
+
+void MainWindow::on_closeTab_pressed(){
+    on_actionClose_Tab_triggered();
+}
+
+void MainWindow::on_newTab_pressed(){
+    on_actionNew_Tab_triggered();
+}
+
