@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->tabWidget, SIGNAL(currentChanged(int)), this, SLOT(tabSelected()));
     // set the index of the tab
      ui->tabWidget->setCurrentIndex(0);
-     currentNumOfTabs = 0;
+     currentNumOfTabs = 1;
 }
 // Deconstructor
 MainWindow::~MainWindow(){
@@ -105,18 +105,15 @@ void MainWindow::tabSelected(){
 void MainWindow::on_actionClose_Tab_triggered(){
     currentNumOfTabs--;
     int currentTabIndex = ui->tabWidget->currentIndex();
-    if (currentTabIndex != 0){
+    if(currentNumOfTabs != 0){
         ui->tabWidget->removeTab(currentTabIndex);
-    }
-    else {
-        if (currentNumOfTabs == 1){
-            exit(0);
-        }
+    } else {
+        QApplication::quit();
     }
 }
 // close the entire browser
 void MainWindow::on_actionClose_Window_triggered(){
-    exit(0);
+    QApplication::quit();
 }
 // close the tab when the close tab button is pressed
 void MainWindow::on_closeTab_pressed(){
@@ -126,8 +123,6 @@ void MainWindow::on_closeTab_pressed(){
 void MainWindow::on_newTab_pressed(){
     on_actionNew_Tab_triggered();
 }
-
-
 // add the current page to the bookmarks
 void MainWindow::on_actionAdd_Bookmark_triggered(){
     urls.addToBookmarks(current->url().toString());
@@ -267,7 +262,6 @@ void MainWindow::on_actionHide_Timer_triggered(){
     wrapper->hide();
 }
 
-void MainWindow::on_actionNew_Window_triggered()
-{
+void MainWindow::on_actionNew_Window_triggered(){
 
 }
