@@ -45,19 +45,25 @@ public:
     QAction *actionView_Blocked;
     QAction *actionShow_Timer_2;
     QAction *actionHide_Timer;
+    QAction *actionCopy1;
+    QAction *actionCut1;
+    QAction *actionRemove_Bookmark;
+    QAction *actionRemove_Blocked;
     QAction *actionClose_Tab;
     QAction *actionClose_Window;
     QWidget *centralWidget;
     QGridLayout *gridLayout;
+    QPushButton *newTab;
+    QLineEdit *google;
+    QPushButton *goButton;
+    QPushButton *refreshButton;
     QPushButton *googleButton;
     QTabWidget *tabWidget;
     QWidget *tab_11;
     QPushButton *backButton;
-    QPushButton *forwardButton;
     QLineEdit *urlEdit;
-    QPushButton *goButton;
-    QPushButton *refreshButton;
-    QLineEdit *google;
+    QPushButton *forwardButton;
+    QPushButton *closeTab;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuEdit;
@@ -104,6 +110,14 @@ public:
         actionShow_Timer_2->setObjectName(QStringLiteral("actionShow_Timer_2"));
         actionHide_Timer = new QAction(MainWindow);
         actionHide_Timer->setObjectName(QStringLiteral("actionHide_Timer"));
+        actionCopy1 = new QAction(MainWindow);
+        actionCopy1->setObjectName(QStringLiteral("actionCopy1"));
+        actionCut1 = new QAction(MainWindow);
+        actionCut1->setObjectName(QStringLiteral("actionCut1"));
+        actionRemove_Bookmark = new QAction(MainWindow);
+        actionRemove_Bookmark->setObjectName(QStringLiteral("actionRemove_Bookmark"));
+        actionRemove_Blocked = new QAction(MainWindow);
+        actionRemove_Blocked->setObjectName(QStringLiteral("actionRemove_Blocked"));
         actionClose_Tab = new QAction(MainWindow);
         actionClose_Tab->setObjectName(QStringLiteral("actionClose_Tab"));
         actionClose_Window = new QAction(MainWindow);
@@ -114,48 +128,24 @@ public:
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        googleButton = new QPushButton(centralWidget);
-        googleButton->setObjectName(QStringLiteral("googleButton"));
+        newTab = new QPushButton(centralWidget);
+        newTab->setObjectName(QStringLiteral("newTab"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(googleButton->sizePolicy().hasHeightForWidth());
-        googleButton->setSizePolicy(sizePolicy);
-        googleButton->setStyleSheet(QLatin1String("background-image: url(:/Images/googLogo.png);\n"
-"width: 26px"));
+        sizePolicy.setHeightForWidth(newTab->sizePolicy().hasHeightForWidth());
+        newTab->setSizePolicy(sizePolicy);
+        newTab->setStyleSheet(QLatin1String("background-image: url(:/Images/new.jpg);\n"
+"width: 26px;"));
 
-        gridLayout->addWidget(googleButton, 0, 6, 1, 1);
+        gridLayout->addWidget(newTab, 0, 5, 1, 1);
 
-        tabWidget = new QTabWidget(centralWidget);
-        tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tab_11 = new QWidget();
-        tab_11->setObjectName(QStringLiteral("tab_11"));
-        tabWidget->addTab(tab_11, QString());
+        google = new QLineEdit(centralWidget);
+        google->setObjectName(QStringLiteral("google"));
+        sizePolicy.setHeightForWidth(google->sizePolicy().hasHeightForWidth());
+        google->setSizePolicy(sizePolicy);
 
-        gridLayout->addWidget(tabWidget, 1, 0, 1, 7);
-
-        backButton = new QPushButton(centralWidget);
-        backButton->setObjectName(QStringLiteral("backButton"));
-        sizePolicy.setHeightForWidth(backButton->sizePolicy().hasHeightForWidth());
-        backButton->setSizePolicy(sizePolicy);
-        backButton->setStyleSheet(QLatin1String("background-image: url(:/Images/back.jpg);\n"
-"width: 90px;"));
-
-        gridLayout->addWidget(backButton, 0, 0, 1, 1);
-
-        forwardButton = new QPushButton(centralWidget);
-        forwardButton->setObjectName(QStringLiteral("forwardButton"));
-        sizePolicy.setHeightForWidth(forwardButton->sizePolicy().hasHeightForWidth());
-        forwardButton->setSizePolicy(sizePolicy);
-        forwardButton->setStyleSheet(QLatin1String("background-image: url(:/Images/forward.jpg);\n"
-"width: 90px;"));
-
-        gridLayout->addWidget(forwardButton, 0, 1, 1, 1);
-
-        urlEdit = new QLineEdit(centralWidget);
-        urlEdit->setObjectName(QStringLiteral("urlEdit"));
-
-        gridLayout->addWidget(urlEdit, 0, 2, 1, 1);
+        gridLayout->addWidget(google, 0, 7, 1, 1);
 
         goButton = new QPushButton(centralWidget);
         goButton->setObjectName(QStringLiteral("goButton"));
@@ -176,12 +166,52 @@ public:
 
         gridLayout->addWidget(refreshButton, 0, 4, 1, 1);
 
-        google = new QLineEdit(centralWidget);
-        google->setObjectName(QStringLiteral("google"));
-        sizePolicy.setHeightForWidth(google->sizePolicy().hasHeightForWidth());
-        google->setSizePolicy(sizePolicy);
+        googleButton = new QPushButton(centralWidget);
+        googleButton->setObjectName(QStringLiteral("googleButton"));
+        sizePolicy.setHeightForWidth(googleButton->sizePolicy().hasHeightForWidth());
+        googleButton->setSizePolicy(sizePolicy);
+        googleButton->setStyleSheet(QLatin1String("background-image: url(:/Images/googLogo.png);\n"
+"width: 26px"));
 
-        gridLayout->addWidget(google, 0, 5, 1, 1);
+        gridLayout->addWidget(googleButton, 0, 8, 1, 1);
+
+        tabWidget = new QTabWidget(centralWidget);
+        tabWidget->setObjectName(QStringLiteral("tabWidget"));
+        tab_11 = new QWidget();
+        tab_11->setObjectName(QStringLiteral("tab_11"));
+        tabWidget->addTab(tab_11, QString());
+
+        gridLayout->addWidget(tabWidget, 2, 0, 1, 9);
+
+        backButton = new QPushButton(centralWidget);
+        backButton->setObjectName(QStringLiteral("backButton"));
+        sizePolicy.setHeightForWidth(backButton->sizePolicy().hasHeightForWidth());
+        backButton->setSizePolicy(sizePolicy);
+        backButton->setStyleSheet(QLatin1String("background-image: url(:/Images/back.jpg);\n"
+"width: 90px;"));
+
+        gridLayout->addWidget(backButton, 0, 0, 1, 1);
+
+        urlEdit = new QLineEdit(centralWidget);
+        urlEdit->setObjectName(QStringLiteral("urlEdit"));
+
+        gridLayout->addWidget(urlEdit, 0, 2, 1, 1);
+
+        forwardButton = new QPushButton(centralWidget);
+        forwardButton->setObjectName(QStringLiteral("forwardButton"));
+        sizePolicy.setHeightForWidth(forwardButton->sizePolicy().hasHeightForWidth());
+        forwardButton->setSizePolicy(sizePolicy);
+        forwardButton->setStyleSheet(QLatin1String("background-image: url(:/Images/forward.jpg);\n"
+"width: 90px;"));
+
+        gridLayout->addWidget(forwardButton, 0, 1, 1, 1);
+
+        closeTab = new QPushButton(centralWidget);
+        closeTab->setObjectName(QStringLiteral("closeTab"));
+        closeTab->setStyleSheet(QLatin1String("background-image: url(:/Images/close.jpg);\n"
+"width: 26px;"));
+
+        gridLayout->addWidget(closeTab, 0, 6, 1, 1);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -227,8 +257,10 @@ public:
         menuEdit->addAction(actionPaste);
         menuHistory->addAction(actionView_History);
         menuBookmarks->addAction(actionAdd_Bookmark);
+        menuBookmarks->addAction(actionRemove_Bookmark);
         menuBookmarks->addAction(actionView_Bookmarks);
         menuBlocked->addAction(actionBlock_site);
+        menuBlocked->addAction(actionRemove_Blocked);
         menuBlocked->addAction(actionView_Blocked);
         menuTimer->addAction(actionNew_Timer);
         menuTimer->addAction(menuCurrent_Timer->menuAction());
@@ -259,22 +291,29 @@ public:
         actionNew_Window->setText(QApplication::translate("MainWindow", "New Window", 0));
         actionAdd_Bookmark->setText(QApplication::translate("MainWindow", "Add Bookmark", 0));
         actionAdd_Bookmark->setShortcut(QApplication::translate("MainWindow", "Ctrl+B", 0));
-        actionBlock_site->setText(QApplication::translate("MainWindow", "Block site", 0));
+        actionBlock_site->setText(QApplication::translate("MainWindow", "Block Site", 0));
         actionView_History->setText(QApplication::translate("MainWindow", "View History", 0));
         actionNew_Timer->setText(QApplication::translate("MainWindow", "New Timer", 0));
         actionView_Bookmarks->setText(QApplication::translate("MainWindow", "View Bookmarks", 0));
         actionView_Blocked->setText(QApplication::translate("MainWindow", "View Blocked", 0));
         actionShow_Timer_2->setText(QApplication::translate("MainWindow", "Show", 0));
         actionHide_Timer->setText(QApplication::translate("MainWindow", "Hide", 0));
+        actionCopy1->setText(QApplication::translate("MainWindow", "Copy", 0));
+        actionCut1->setText(QApplication::translate("MainWindow", "Cut", 0));
+        actionRemove_Bookmark->setText(QApplication::translate("MainWindow", "Remove Bookmark", 0));
+        actionRemove_Blocked->setText(QApplication::translate("MainWindow", "Unblock Site", 0));
         actionClose_Tab->setText(QApplication::translate("MainWindow", "Close Tab", 0));
+        actionClose_Tab->setShortcut(QApplication::translate("MainWindow", "Ctrl+W", 0));
         actionClose_Window->setText(QApplication::translate("MainWindow", "Close Window", 0));
         actionClose_Window->setShortcut(QApplication::translate("MainWindow", "Ctrl+Q", 0));
+        newTab->setText(QString());
+        goButton->setText(QString());
+        refreshButton->setText(QString());
         googleButton->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_11), QApplication::translate("MainWindow", "Tab 1", 0));
         backButton->setText(QString());
         forwardButton->setText(QString());
-        goButton->setText(QString());
-        refreshButton->setText(QString());
+        closeTab->setText(QString());
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
         menuEdit->setTitle(QApplication::translate("MainWindow", "Edit", 0));
         menuHistory->setTitle(QApplication::translate("MainWindow", "History", 0));

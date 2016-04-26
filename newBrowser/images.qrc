@@ -7,6 +7,8 @@
         <file>go.jpg</file>
         <file>refresh.jpg</file>
         <file>googLogo.png</file>
+        <file>new.jpg</file>
+        <file>close.jpg</file>
     </qresource>
     <qresource prefix="/HTML">
         <file>blocked.html</file>

@@ -31,6 +31,7 @@ public:
     ~MainWindow();
 
 private slots:
+    // helper method to change page's HTML
     void setHTML(QString html, QString tabName, QString urlBox);
     // Window Buttons
     void on_backButton_clicked();
@@ -44,6 +45,12 @@ private slots:
     void onClicked();
     void on_googleButton_clicked();
     void on_google_returnPressed();
+    void on_actionRemove_Bookmark_triggered();
+    void on_actionRemove_Blocked_triggered();
+    void on_actionClose_Tab_triggered();
+    void on_actionClose_Window_triggered();
+    void on_closeTab_pressed();
+    void on_newTab_pressed();
     
     // Menus
         // File
@@ -65,16 +72,11 @@ private slots:
         void on_actionShow_Timer_2_triggered();
         void on_actionHide_Timer_triggered();
 
-    void on_actionRemove_Bookmark_triggered();
-    void on_actionRemove_Blocked_triggered();
-
-    void on_actionClose_Tab_triggered();
-    void on_actionClose_Window_triggered();
-
 private:
     Ui::MainWindow *ui;
-    QWebView* current;
-    url_collections urls;
+    QWebView* current; // the current web view that is being displayed
+    url_collections urls; // contains history, bookmarks, and blocked sites
+    // Timer:
     QTimer *timer;
     QProgressBar *progressBar;
     QLineEdit *lineEdit;
@@ -84,6 +86,7 @@ private:
     QHBoxLayout *hlayout1;
     QWidget *wrapper;
     QLabel *input_label;
+    int currentNumOfTabs;
 };
 
 #endif // MAINWINDOW_H

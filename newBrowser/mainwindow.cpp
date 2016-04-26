@@ -4,6 +4,7 @@
 #include <QFile>
 #include <QTextStream>
 
+// constructor
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
     // remove tab that is there by default
@@ -20,12 +21,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->tabWidget, SIGNAL(currentChanged(int)), this, SLOT(tabSelected()));
     // set the index of the tab
      ui->tabWidget->setCurrentIndex(0);
+     currentNumOfTabs = 1;
 }
-
+// Deconstructor
 MainWindow::~MainWindow(){
     delete ui;
 }
-
 // Go back a page when the back button is clicked
 void MainWindow::on_backButton_clicked(){
     current->back();
@@ -33,6 +34,14 @@ void MainWindow::on_backButton_clicked(){
 // Go forward a page when the forward button is clicked
 void MainWindow::on_forwardButton_clicked(){
     current->forward();
+}
+// Go back when the menu back option is selected
+void MainWindow::on_actionBack_triggered(){
+    on_backButton_clicked();
+}
+// Go forward when the menu forward option is selected
+void MainWindow::on_actionForward_triggered(){
+    on_forwardButton_clicked();
 }
 // Load the URL in the URL Edit Box when go is clicked
 void MainWindow::on_goButton_clicked(){
@@ -46,6 +55,14 @@ void MainWindow::on_goButton_clicked(){
 // Reload the page when the refresh button is clicked
 void MainWindow::on_refreshButton_clicked(){
     current->reload();
+}
+// Indicate that a search is being made
+void MainWindow::on_google_returnPressed(){
+    on_googleButton_clicked();
+}
+// Load the page for the search bar
+void MainWindow::on_googleButton_clicked() {
+    current->load(QUrl(QString("http://www.google.com/#q=")+(ui->google->text())));
 }
 // When enter is pressed in the URL edit box, load the page
 void MainWindow::on_urlEdit_returnPressed(){
@@ -76,25 +93,17 @@ void MainWindow::updateUrlBox(){
     }
 }
 
-void MainWindow::on_actionNew_Window_triggered(){
 
-}
-
+// Called when a new tab is added.
+// create a new web view, adds the web view as a tab, and switches to this tab
 void MainWindow::on_actionNew_Tab_triggered()
 {
     int currentTabIndex = ui->tabWidget->currentIndex();
     QWebView *newWebView = new QWebView();
     newWebView->setUrl(QUrl("http://www.google.com"));
     ui->tabWidget->addTab(newWebView, newWebView->url().host());
+    currentNumOfTabs++;
     ui->tabWidget->setCurrentIndex(currentTabIndex+1);
-}
-
-void MainWindow::on_actionBack_triggered(){
-    on_backButton_clicked();
-}
-
-void MainWindow::on_actionForward_triggered(){
-    on_forwardButton_clicked();
 }
 // change current to be the web view of the selected tab. update tab title
 void MainWindow::tabSelected(){
@@ -102,14 +111,49 @@ void MainWindow::tabSelected(){
     connect(current, SIGNAL(urlChanged(const QUrl &)), this, SLOT(updateUrlBox()));
     ui->urlEdit->setText(current->url().toString());
 }
-
+// close the current tab when the menu option is selected
+void MainWindow::on_actionClose_Tab_triggered(){
+    currentNumOfTabs--;
+    int currentTabIndex = ui->tabWidget->currentIndex();
+    if(currentNumOfTabs != 0){
+        ui->tabWidget->removeTab(currentTabIndex);
+    } else {
+        QApplication::quit();
+    }
+}
+// close the entire browser
+void MainWindow::on_actionClose_Window_triggered(){
+    QApplication::quit();
+}
+// close the tab when the close tab button is pressed
+void MainWindow::on_closeTab_pressed(){
+    on_actionClose_Tab_triggered();
+}
+// open a new tab when the new tab button is pressed
+void MainWindow::on_newTab_pressed(){
+    on_actionNew_Tab_triggered();
+}
+// add the current page to the bookmarks
 void MainWindow::on_actionAdd_Bookmark_triggered(){
     urls.addToBookmarks(current->url().toString());
 }
-
+// add the current page to the blocked sites
 void MainWindow::on_actionBlock_site_triggered(){
     urls.addToBlocked(current->url().host());
 }
+// remove the current page from the bookmarks
+void MainWindow::on_actionRemove_Bookmark_triggered(){
+    urls.removeFromBookmarks(current->url().toString());
+}
+// remove the current page from the list of blocked sites
+void MainWindow::on_actionRemove_Blocked_triggered(){
+    QString urlHost = ui->urlEdit->text();
+    urls.removeFromBlocked(urlHost);
+}
+
+  //------------//
+  // Timer Code //
+  //------------//
 
 void MainWindow::on_actionNew_Timer_triggered(){
     //timer implementation
@@ -146,7 +190,6 @@ void MainWindow::on_actionNew_Timer_triggered(){
     QObject::connect(start_button, SIGNAL(clicked()), this, SLOT(onClicked()));
 }
 
-//timer methods
 void MainWindow::onClicked(){
     if( start_button->text() == "Start"){
         QString stringValue = lineEdit->text();
@@ -243,6 +286,7 @@ void MainWindow::on_actionView_Bookmarks_triggered(){
     setHTML(html, "Bookmarks", "");
 }
 
+
 void MainWindow::on_actionShow_Timer_2_triggered(){
     hlayout1->removeWidget(lineEdit);
     hlayout1->removeWidget(input_label);
@@ -256,36 +300,6 @@ void MainWindow::on_actionHide_Timer_triggered(){
     wrapper->hide();
 }
 
-// Indicate that a search is being made
-void MainWindow::on_google_returnPressed(){
-    on_googleButton_clicked();
-}
+void MainWindow::on_actionNew_Window_triggered(){
 
-// Load the page for the search bar
-void MainWindow::on_googleButton_clicked() {
-    current->load(QUrl(QString("http://www.google.com/#q=")+(ui->google->text())));
-}
-
-void MainWindow::on_actionRemove_Bookmark_triggered(){
-    urls.removeFromBookmarks(current->url().toString());
-}
-
-void MainWindow::on_actionRemove_Blocked_triggered(){
-    //QString urlHost = current->history()->currentItem().url().host();
-    QString urlHost = ui->urlEdit->text();
-    urls.removeFromBlocked(urlHost);
-}
-
-void MainWindow::on_actionClose_Tab_triggered(){
-    int currentTabIndex = ui->tabWidget->currentIndex();
-    if (currentTabIndex != 0){
-        ui->tabWidget->removeTab(currentTabIndex);
-    }
-    else {
-        exit(0);
-    }
-}
-
-void MainWindow::on_actionClose_Window_triggered(){
-    exit(0);
 }
