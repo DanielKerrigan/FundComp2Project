@@ -100,10 +100,6 @@ void MainWindow::tabSelected(){
     current = (QWebView*) ui->tabWidget->currentWidget();
     connect(current, SIGNAL(urlChanged(const QUrl &)), this, SLOT(updateUrlBox()));
     ui->urlEdit->setText(current->url().toString());
-    QWebFrame *frame = current->page()->mainFrame();
-    QWebElement dom_title = frame->findFirstElement("title");
-    QString title = dom_title.evaluateJavaScript("this.text").toString();
-    QDebug() << title << endl;
 }
 // close the current tab when the menu option is selected
 void MainWindow::on_actionClose_Tab_triggered(){
