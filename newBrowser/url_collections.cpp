@@ -56,15 +56,15 @@ url_collections::~url_collections(){
         }
     }
 }
-
+// add the url to the history list
 void url_collections::addToHistory(QString url){
     history.push_back(url);
 }
-
+// add the url host to the blocked sites set
 void url_collections::addToBlocked(QString url_host){
     blocked.insert(url_host);
 }
-
+// add the url to the bookmarks list
 void url_collections::addToBookmarks(QString url){
     bookmarks.push_back(url);
 }
@@ -72,7 +72,6 @@ void url_collections::addToBookmarks(QString url){
 bool url_collections::is_blocked(QString urlHost){
     return (blocked.find(urlHost) != blocked.end());
 }
-
 // Return HTML for a page that lists the history urls
 QString url_collections::getHistoryHTML(){
     QString html = QString("<html><body><h1>History</h1>");
@@ -103,21 +102,21 @@ QString url_collections::getBookmarksHTML(){
     html += QString("</body></html>");
     return html;
 }
-
+// remove the url from the history list, if it is in the list
 void url_collections::removeFromHistory(QString url){
     std::vector<QString>::iterator it = std::find(history.begin(), history.end(), url);
     if(it != history.end()){
         history.erase(it);
     }
 }
-
+// remove the url from the bookmarks list, if it is in the list
 void url_collections::removeFromBookmarks(QString url){
     std::vector<QString>::iterator it = std::find(bookmarks.begin(), bookmarks.end(), url);
     if(it != bookmarks.end()){
         bookmarks.erase(it);
     }
 }
-
+// remove the url from the blocked sites set, if it is in the set
 void url_collections::removeFromBlocked(QString url){
     std::set<QString>::iterator it = blocked.find(url);
     if(it != blocked.end()){
