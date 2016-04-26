@@ -147,7 +147,8 @@ void MainWindow::on_actionRemove_Bookmark_triggered(){
 }
 // remove the current page from the list of blocked sites
 void MainWindow::on_actionRemove_Blocked_triggered(){
-    QString urlHost = ui->urlEdit->text();
+    //QString urlHost = ui->urlEdit->text();
+    QString urlHost = current->history()->currentItem().url().host();
     urls.removeFromBlocked(urlHost);
 }
 
@@ -298,8 +299,4 @@ void MainWindow::on_actionShow_Timer_2_triggered(){
 
 void MainWindow::on_actionHide_Timer_triggered(){
     wrapper->hide();
-}
-
-void MainWindow::on_actionNew_Window_triggered(){
-
 }

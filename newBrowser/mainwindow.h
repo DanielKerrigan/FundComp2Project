@@ -55,7 +55,6 @@ private slots:
     // Menus
         // File
         void on_actionNew_Tab_triggered();
-        void on_actionNew_Window_triggered();
         // Edit
         void on_actionBack_triggered();
         void on_actionForward_triggered();

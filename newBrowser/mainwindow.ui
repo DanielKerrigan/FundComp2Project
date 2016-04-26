@@ -170,7 +170,6 @@ width: 26px;</string>
      <string>File</string>
     </property>
     <addaction name="actionNew_Tab"/>
-    <addaction name="actionNew_Window"/>
     <addaction name="actionClose_Tab"/>
     <addaction name="actionClose_Window"/>
    </widget>
@@ -181,9 +180,6 @@ width: 26px;</string>
     <addaction name="actionBack"/>
     <addaction name="actionForward"/>
     <addaction name="separator"/>
-    <addaction name="actionCut"/>
-    <addaction name="actionCopy"/>
-    <addaction name="actionPaste"/>
    </widget>
    <widget class="QMenu" name="menuHistory">
     <property name="title">
@@ -247,30 +243,6 @@ width: 26px;</string>
     <string>Forward</string>
    </property>
   </action>
-  <action name="actionCut">
-   <property name="text">
-    <string>Cut</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+X</string>
-   </property>
-  </action>
-  <action name="actionCopy">
-   <property name="text">
-    <string>Copy</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+C</string>
-   </property>
-  </action>
-  <action name="actionPaste">
-   <property name="text">
-    <string>Paste</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+V</string>
-   </property>
-  </action>
   <action name="actionNew_Tab">
    <property name="text">
     <string>New Tab</string>
@@ -322,16 +294,6 @@ width: 26px;</string>
     <string>Hide</string>
    </property>
   </action>
-  <action name="actionCopy">
-   <property name="text">
-    <string>Copy</string>
-   </property>
-  </action>
-  <action name="actionCut">
-   <property name="text">
-    <string>Cut</string>
-   </property>
-  </action>
   <action name="actionRemove_Bookmark">
    <property name="text">
     <string>Remove Bookmark</string>
@@ -356,11 +318,6 @@ width: 26px;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
-   </property>
-  </action>
-  <action name="actionNew_Window">
-   <property name="text">
-    <string>New Window</string>
    </property>
   </action>
  </widget>
