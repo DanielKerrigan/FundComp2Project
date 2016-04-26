@@ -86,7 +86,7 @@ QString url_collections::getBlockedHTML(){
     QString html = QString("");
     std::set<QString>::iterator it;
     for(it = blocked.begin(); it != blocked.end(); ++it){
-        html += QString("<tr><td><a href='%1'>%1</a></td></tr>").arg(*it);
+        html += QString("<tr><td><a href='http://%1'>%1</a></td></tr>").arg(*it);
     }
     return html;
 }

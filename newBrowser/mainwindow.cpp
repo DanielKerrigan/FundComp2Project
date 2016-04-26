@@ -7,7 +7,7 @@
 // constructor
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
-    // remove tab that is there by default
+    // remove tab that is there by default in the ui
     ui->tabWidget->removeTab(0);
     // add new tab with web view
     on_actionNew_Tab_triggered();
@@ -99,12 +99,12 @@ void MainWindow::updateUrlBox(){
 // create a new web view, adds the web view as a tab, and switches to this tab
 void MainWindow::on_actionNew_Tab_triggered()
 {
-    int currentTabIndex = ui->tabWidget->currentIndex();
+    //int currentTabIndex = ui->tabWidget->currentIndex();
     QWebView *newWebView = new QWebView();
     newWebView->setUrl(QUrl("http://www.google.com"));
     ui->tabWidget->addTab(newWebView, newWebView->url().host());
     currentNumOfTabs++;
-    ui->tabWidget->setCurrentIndex(currentTabIndex+1);
+    ui->tabWidget->setCurrentIndex(currentNumOfTabs-1);
 }
 // change current to be the web view of the selected tab. update tab title
 void MainWindow::tabSelected(){
