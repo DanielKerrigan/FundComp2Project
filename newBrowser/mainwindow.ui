@@ -145,6 +145,12 @@ width: 90px;</string>
     </item>
     <item row="0" column="6">
      <widget class="QPushButton" name="closeTab">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="styleSheet">
        <string notr="true">background-image: url(:/Images/close.jpg);
 width: 26px;</string>
