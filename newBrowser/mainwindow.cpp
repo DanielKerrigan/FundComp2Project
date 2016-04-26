@@ -163,32 +163,34 @@ void MainWindow::on_actionNew_Timer_triggered(){
         timer_exists = 1;
 
         //timer implementation
+        //progress bar is used to increment
         progressBar = new QProgressBar();
         progressBar->setMinimum(0);
         progressBar->setMaximum(10800);
         progressBar->setValue(0);
+
         lineEdit = new QLineEdit();
-        //lineEdit->setMaximumWidth(30);
         lineEdit->setAlignment(Qt::AlignHCenter);
         start_button = new QPushButton;
         start_button->setText("Start");
-        //QLCDNumber *timeLeft = new QLCDNumber();
         label = new QLabel();
         label->setAlignment(Qt::AlignCenter);
         input_label = new QLabel();
         input_label->setText("minutes");
 
+        //horizontal layout puts
+        //input box next to label
         hlayout1 = new QHBoxLayout();
         hlayout1->addWidget(lineEdit);
         hlayout1->addWidget(input_label);
 
+        //vertical layout for timer
         vlayout = new QVBoxLayout();
         vlayout->addLayout(hlayout1);
         vlayout->addWidget(label);
         vlayout->addWidget(start_button);
-        //layout->addWidget(progressBar);
-        //layout->addWidget(timeLeft);
 
+        //timer object
         wrapper = new QWidget();
         wrapper->setLayout(vlayout);
         wrapper->show();
@@ -201,8 +203,6 @@ void MainWindow::onClicked(){
     if( start_button->text() == "Start"){
         QString stringValue = lineEdit->text();
         int startValue = stringValue.toInt();
-
-        //remove lineEdit
 
         //change button
         start_button->setText("Get to Work");
@@ -221,6 +221,7 @@ void MainWindow::onClicked(){
 
 }
 
+//slot that takes action every second
 void MainWindow::onTimeout(){
     int value = progressBar->value();
     if( value == 0){
@@ -306,9 +307,11 @@ void MainWindow::on_actionShow_Timer_2_triggered(){
                 start_button->setText("Time Left");
             }
             wrapper->show();
-        }
+    }
+    //button takes no action if timer doesn't exist
 }
 
 void MainWindow::on_actionHide_Timer_triggered(){
-    wrapper->hide();
+    if( timer_exists) wrapper->hide();
+    //button takes no action if timer doesn't exist
 }
