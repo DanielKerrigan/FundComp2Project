@@ -14,15 +14,18 @@
 class url_collections
 {
 public:
-    url_collections();
-    ~url_collections();
+    url_collections(); // constructor
+    ~url_collections(); // deconstructor
+    // add the passed url to the collection
     void addToHistory(QString);
     void addToBlocked(QString);
     void addToBookmarks(QString);
+    // remove the passed url from the collection
     void removeFromHistory(QString);
     void removeFromBookmarks(QString);
     void removeFromBlocked(QString);
     bool is_blocked(QString);
+    // returns HTML for pages that show
     QString getHistoryHTML();
     QString getBlockedHTML();
     QString getBookmarksHTML();
