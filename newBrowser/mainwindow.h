@@ -87,6 +87,7 @@ private:
     QWidget *wrapper;
     QLabel *input_label;
     int currentNumOfTabs;
+    int timer_exists;
 };
 
 #endif // MAINWINDOW_H
