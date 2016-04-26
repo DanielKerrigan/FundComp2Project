@@ -22,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     // set the index of the tab
      ui->tabWidget->setCurrentIndex(0);
      currentNumOfTabs = 1;
+     timer_exists = 0;
 }
 // Deconstructor
 MainWindow::~MainWindow(){
@@ -157,38 +158,43 @@ void MainWindow::on_actionRemove_Blocked_triggered(){
   //------------//
 
 void MainWindow::on_actionNew_Timer_triggered(){
-    //timer implementation
-    progressBar = new QProgressBar();
-    progressBar->setMinimum(0);
-    progressBar->setMaximum(10800);
-    progressBar->setValue(0);
-    lineEdit = new QLineEdit();
-    //lineEdit->setMaximumWidth(30);
-    lineEdit->setAlignment(Qt::AlignHCenter);
-    start_button = new QPushButton;
-    start_button->setText("Start");
-    //QLCDNumber *timeLeft = new QLCDNumber();
-    label = new QLabel();
-    label->setAlignment(Qt::AlignCenter);
-    input_label = new QLabel();
-    input_label->setText("minutes");
+    if( !timer_exists ){
+        //indicator
+        timer_exists = 1;
 
-    hlayout1 = new QHBoxLayout();
-    hlayout1->addWidget(lineEdit);
-    hlayout1->addWidget(input_label);
+        //timer implementation
+        progressBar = new QProgressBar();
+        progressBar->setMinimum(0);
+        progressBar->setMaximum(10800);
+        progressBar->setValue(0);
+        lineEdit = new QLineEdit();
+        //lineEdit->setMaximumWidth(30);
+        lineEdit->setAlignment(Qt::AlignHCenter);
+        start_button = new QPushButton;
+        start_button->setText("Start");
+        //QLCDNumber *timeLeft = new QLCDNumber();
+        label = new QLabel();
+        label->setAlignment(Qt::AlignCenter);
+        input_label = new QLabel();
+        input_label->setText("minutes");
 
-    vlayout = new QVBoxLayout();
-    vlayout->addLayout(hlayout1);
-    vlayout->addWidget(label);
-    vlayout->addWidget(start_button);
-    //layout->addWidget(progressBar);
-    //layout->addWidget(timeLeft);
+        hlayout1 = new QHBoxLayout();
+        hlayout1->addWidget(lineEdit);
+        hlayout1->addWidget(input_label);
 
-    wrapper = new QWidget();
-    wrapper->setLayout(vlayout);
-    wrapper->show();
+        vlayout = new QVBoxLayout();
+        vlayout->addLayout(hlayout1);
+        vlayout->addWidget(label);
+        vlayout->addWidget(start_button);
+        //layout->addWidget(progressBar);
+        //layout->addWidget(timeLeft);
 
-    QObject::connect(start_button, SIGNAL(clicked()), this, SLOT(onClicked()));
+        wrapper = new QWidget();
+        wrapper->setLayout(vlayout);
+        wrapper->show();
+
+        QObject::connect(start_button, SIGNAL(clicked()), this, SLOT(onClicked()));
+    }
 }
 
 void MainWindow::onClicked(){
@@ -289,12 +295,18 @@ void MainWindow::on_actionView_Bookmarks_triggered(){
 
 
 void MainWindow::on_actionShow_Timer_2_triggered(){
-    hlayout1->removeWidget(lineEdit);
-    hlayout1->removeWidget(input_label);
-    delete lineEdit;
-    delete input_label;
-    wrapper->setLayout(vlayout);
-    wrapper->show();
+    if( timer_exists ){
+            if( start_button->text() == "Get to Work"){
+                hlayout1->removeWidget(lineEdit);
+                hlayout1->removeWidget(input_label);
+                delete lineEdit;
+                delete input_label;
+                wrapper->update();
+                wrapper->setLayout(vlayout);
+                start_button->setText("Time Left");
+            }
+            wrapper->show();
+        }
 }
 
 void MainWindow::on_actionHide_Timer_triggered(){
