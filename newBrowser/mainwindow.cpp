@@ -74,10 +74,12 @@ void MainWindow::on_actionNew_Window_triggered(){
 
 void MainWindow::on_actionNew_Tab_triggered()
 {
+    int currentTabIndex = ui->tabWidget->currentIndex();
     QWebView *newWebView = new QWebView();
     newWebView->setUrl(QUrl("http://www.google.com"));
     ui->tabWidget->addTab(newWebView, newWebView->url().host());
     currentNumOfTabs++;
+    ui->tabWidget->setCurrentIndex(currentTabIndex+1);
 }
 
 void MainWindow::on_actionBack_triggered(){
