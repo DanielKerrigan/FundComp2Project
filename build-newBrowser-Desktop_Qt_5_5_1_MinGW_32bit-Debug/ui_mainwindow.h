@@ -303,6 +303,7 @@ public:
         actionRemove_Bookmark->setText(QApplication::translate("MainWindow", "Remove Bookmark", 0));
         actionRemove_Blocked->setText(QApplication::translate("MainWindow", "Unblock Site", 0));
         actionClose_Tab->setText(QApplication::translate("MainWindow", "Close Tab", 0));
+        actionClose_Tab->setShortcut(QApplication::translate("MainWindow", "Ctrl+W", 0));
         actionClose_Window->setText(QApplication::translate("MainWindow", "Close Window", 0));
         actionClose_Window->setShortcut(QApplication::translate("MainWindow", "Ctrl+Q", 0));
         newTab->setText(QString());
